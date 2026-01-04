@@ -6,15 +6,15 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20260101122956">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260104195830">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js?_v=20260101122956"></script> -->
-	<!-- <script src="js/files/jquery.rotating-slider.min.js?_v=20260101122956"></script> -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js?_v=20260104195830"></script> -->
+	<!-- <script src="js/files/jquery.rotating-slider.min.js?_v=20260104195830"></script> -->
 </head>
 
-<body>
+<body style="display: none;">
 	<div class="wrapper">
 		<header class="header">
 			<div class="header__wrap">
@@ -71,7 +71,7 @@
 					<source src="files/bg_video.mp4" type="video/mp4">
 				</video>
 				<div class="top-block__btn-wrap">
-					<button type="button" class="top-block__btn">Старт</button>
+					<button type="button" class="top-block__btn"><span>Старт</span></button>
 				</div>
 
 			</div>
@@ -405,7 +405,7 @@
 													<div class="skills__slide swiper-slide skills-slide">
 														<div class="skills__content">
 															<div class="skills-slide__img">
-																<img src="img/html-css.webp" alt="">
+																<img src="img/html-css-v.webp" alt="">
 															</div>
 															<div class="skills-slide__text">Уверенные знания HTML5 и
 																CSS3</div>
@@ -438,7 +438,7 @@
 													<div class="skills__slide swiper-slide skills-slide">
 														<div class="skills__content">
 															<div class="skills-slide__img">
-																<img src="img/gulp.webp" alt="image">
+																<img src="img/gulp-v.webp" alt="image">
 															</div>
 															<div class="skills-slide__text">Использование таск-менеджера
 																Gulp
@@ -459,9 +459,7 @@
 													<div class="skills__slide swiper-slide skills-slide">
 														<div class="skills__content">
 															<div class="skills-slide__img">
-																<svg>
-																	<use xlink:href="img/icons/icons.svg#figma"></use>
-																</svg>
+																<img src="img/figma-v.webp" alt="icon">
 															</div>
 															<div class="skills-slide__text">Работа в Figma</div>
 														</div>
@@ -470,7 +468,7 @@
 													<div class="skills__slide swiper-slide skills-slide">
 														<div class="skills__content">
 															<div class="skills-slide__img">
-																<img src="img/pixel.webp" alt="image">
+																<img src="img/pixel-v.webp" alt="image">
 															</div>
 															<div class="skills-slide__text">Умение верстать
 																PixelPerfect.</div>
@@ -480,7 +478,7 @@
 													<div class="skills__slide swiper-slide skills-slide">
 														<div class="skills__content">
 															<div class="skills-slide__img">
-																<img src="img/flex-grid.webp" alt="image">
+																<img src="img/flex-grid-v.webp" alt="image">
 															</div>
 															<div class="skills-slide__text">Использование Flexbox и
 																Grid.</div>
@@ -490,7 +488,7 @@
 													<div class="skills__slide swiper-slide skills-slide">
 														<div class="skills__content">
 															<div class="skills-slide__img">
-																<img src="img/javascript-logo.webp" alt="image">
+																<img src="img/javascript-logo-v.webp" alt="image">
 															</div>
 															<div class="skills-slide__text">Навыки работы с JS</div>
 														</div>
@@ -518,25 +516,46 @@
 										</div>
 										<h2 class="violet__title">Работы</h2>
 									</div>
-									<div class="violet__main">
-										<div class="violet__text">
-											<div class="violet__text-inner">
-												<h2>Врываюсь в IT слегка за
-													30</h2>
-												<span>Мне 39 лет. В какой-то момент
-													открыл для себя
-													чудесный
-													мир веб-разработки, и решил
-													связать жизнь с этой профессией. Набиваю руку, готов учиться.
-													Занимаюсь
-													веб-разработкой
-													около двух лет. </span>
-												<span>Ответственный, пунктуальный, усидчивый, обучаемый, настырный,
-													склонен к
-													перфекционизму.</span>
-												<span>Созидание и творчество - моё всё.</span>
+									<div class="violet__main violet-works">
+										<div class="violet-works__swiper-wrapper">
+											<div class="violet-works__icon">
+												<img src="img/scroll-icon.webp" alt="icon">
+											</div>
+											<div class="violet-works__slider swiper">
+												<div class="violet-works__wrapper swiper-wrapper">
+
+													<div class="violet-works__slide swiper-slide"><a href="https://denissaliukov.github.io/technoserviceport/" target="_blank">
+															<img src="img/technoservis.webp" alt="image">
+															<div class="works__label"><span>Многостраничник</span></div>
+														</a>
+													</div>
+													<div class="violet-works__slide swiper-slide">
+														<a href="https://denissaliukov.github.io/oknahaus/" target="_blank">
+															<img src="img/okna.webp" alt="image">
+															<div class="works__label"><span>Лэндинг</span></div>
+														</a>
+													</div>
+													<div class="violet-works__slide swiper-slide"><a href="https://denissaliukov.github.io/tehnowood/" target="_blank">
+															<img src="img/tehnowood.webp" alt="image">
+															<div class="works__label"><span>Многостраничник</span></div>
+														</a>
+													</div>
+													<div class="violet-works__slide swiper-slide"><a href="https://denissaliukov.github.io/zlatmax/" target="_blank">
+															<img src="img/zlatmax.webp" alt="image">
+															<div class="works__label"><span>Интернет-магазин</span>
+															</div>
+														</a>
+													</div>
+													<div class="violet-works__slide swiper-slide"><a href="https://denissaliukov.github.io/audiomaster/" target="_blank">
+															<img src="img/audiomaster.webp" alt="image">
+															<div class="works__label"><span>Интернет-магазин</span>
+															</div>
+														</a>
+													</div>
+												</div>
 											</div>
 										</div>
+
 
 									</div>
 								</div>
@@ -556,20 +575,27 @@
 									<div class="violet__main">
 										<div class="violet__text">
 											<div class="violet__text-inner">
-												<h2>Врываюсь в IT слегка за
-													30</h2>
-												<span>Мне 39 лет. В какой-то момент
-													открыл для себя
-													чудесный
-													мир веб-разработки, и решил
-													связать жизнь с этой профессией. Набиваю руку, готов учиться.
-													Занимаюсь
-													веб-разработкой
-													около двух лет. </span>
-												<span>Ответственный, пунктуальный, усидчивый, обучаемый, настырный,
-													склонен к
-													перфекционизму.</span>
-												<span>Созидание и творчество - моё всё.</span>
+
+												<h2 class="violet__slogan">Связаться со мной можно любым, удобным для
+													Вас способом.
+												</h2>
+												<ul class="violet__contact-list">
+													<li class="violet__contact-item">
+														<img src="img/email.webp" alt="logo"><span data-ripple>denis_saliukov@yahoo.com</span>
+													</li>
+													<li class="violet__contact-item">
+														<a href="https://wa.me/79131688553"><img src="img/whatsapp.webp" alt="logo">WhatsApp</a>
+													</li>
+													<li class="violet__contact-item"><a href="https://t.me/DanPelikan"><img src="img/Telegram_Messenger.webp" alt="logo"><span>Telegram</span></a>
+													</li>
+													<li class="violet__contact-item">
+														<a href="https://vk.com/presque_vu_jd"><img src="img/vk.webp" alt="logo"><span>ВКонтакте</span></a>
+													</li>
+													<li class="violet__contact-item">
+														<a href="https://max.ru/u/f9LHodD0cOIRtHguZET3mZi6e-E0CVIQS2w5fxkjt8OWBF_hL1uCVoS95A0"><img src="img/Max_logo_2025.webp" alt="logo"><span>MAX</span></a>
+													</li>
+												</ul>
+
 											</div>
 										</div>
 
@@ -592,7 +618,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20260101122956"></script>
+	<script src="js/app.min.js?_v=20260104195830"></script>
 	<div id="popup-violet" aria-hidden="true" class="popup">
 		<div class="popup__wrapper">
 			<div class="popup__content">
