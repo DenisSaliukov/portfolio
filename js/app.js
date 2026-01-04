@@ -4696,6 +4696,9 @@
             });
         }
     }, 0);
+    document.addEventListener("DOMContentLoaded", function() {
+        document.body.style = "display: block;";
+    });
     let blocks = document.querySelectorAll(".action__block");
     let decor = document.querySelectorAll(".decor");
     if (blocks) for (let i = 0; i < blocks.length; i++) {
