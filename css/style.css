@@ -94,6 +94,9 @@
   margin: 0;
   border: 0
 }
+* {
+  outline: 1px solid red!important
+}
 *,
 *::after,
 *::before {
@@ -105,7 +108,7 @@
 }
 body,
 html {
-  height: 100%;
+  height: 100vh;
   min-width: 320px
 }
 body {
@@ -161,7 +164,9 @@ h6 {
   font-size: inherit
 }
 body {
-  min-height: 100vh
+  min-height: 100dvh;
+  width: 100vw;
+  overflow: hidden
 }
 .lock body {
   overflow: hidden;
@@ -447,9 +452,6 @@ body::after {
   left: 0;
   z-index: 3
 }
-.header._cube {
-  height: 8.625rem
-}
 .header__wrap {
   height: 100%;
   position: relative
@@ -699,7 +701,8 @@ main {
 .page {
   position: relative;
   min-height: 100vh;
-  height: 100vh
+  height: 100dvh;
+  width: 100%
 }
 .page__bg {
   overflow: hidden;
@@ -792,6 +795,7 @@ main {
   position: relative;
   width: 100%;
   height: 100%;
+  max-width: 100%;
   -o-object-fit: cover;
   object-fit: cover
 }
@@ -1741,7 +1745,7 @@ main {
   visibility: visible
 }
 .violet {
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
   position: relative;
   align-items: flex-start
@@ -1759,7 +1763,7 @@ main {
   object-fit: cover
 }
 .violet__container {
-  height: 100vh
+  height: 100dvh
 }
 .violet__btn {
   position: absolute;
@@ -1792,7 +1796,7 @@ main {
   grid-template-rows: 50% 50%;
   gap: .4375rem;
   max-width: 100%;
-  height: 100vh;
+  height: 100%;
   transition: all 1.5s ease 0s
 }
 .violet__content.open--1 {
@@ -2091,6 +2095,7 @@ main {
   position: absolute;
   width: 100%;
   height: 100%;
+  max-width: 100%;
   top: 0;
   left: 0;
   -o-object-fit: cover;
@@ -2229,7 +2234,7 @@ main {
   background-image: linear-gradient(45deg,#8e33f7,#2b28d1,#132ea8,#7630d1,#5073b8,#1098ad,#0dbad1,#6f83ba)
 }
 .section--cube {
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
   opacity: 0;
   transition: all 1s ease 0s;
@@ -2242,14 +2247,14 @@ main {
   visibility: visible
 }
 .cube {
-  height: 100%
+  height: 100dvh
 }
 .cube__container {
-  height: 100%
+  height: 100dvh
 }
 .cube__content {
   width: 100%;
-  height: 100%;
+  height: 100dvh;
   position: relative;
   display: flex;
   align-items: center;
@@ -2260,7 +2265,7 @@ main {
   visibility: hidden;
   opacity: 0;
   transition: all 1.5s ease 1s;
-  padding-top: 6.875rem;
+  padding-top: 9.0625rem;
   padding-bottom: 1.875rem;
   background: url(../img/sneg-na-chernom-fone-2.gif) 0 0/cover no-repeat
 }
@@ -2274,7 +2279,7 @@ main {
   content: "";
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 100dvh;
   top: 0;
   left: 0;
   background: var(--img) no-repeat center center/cover;
@@ -2668,9 +2673,6 @@ main {
 }
 @media (min-width:108.125em) {
   .elements {
-    width: 37.5rem
-  }
-  .elements {
     padding-right: 6.25rem
   }
   .elements {
@@ -2843,9 +2845,6 @@ main {
   }
 }
 @media (max-width:20em) {
-  .elements {
-    width: 25rem
-  }
   .elements {
     padding-right: .0000000625rem
   }
@@ -3189,6 +3188,9 @@ main {
   .violet__video {
     opacity: 0
   }
+  .cube__content {
+    padding-top: 6.25rem
+  }
   .cube__blocks {
     flex-direction: column
   }
@@ -3204,9 +3206,6 @@ main {
   }
 }
 @media (min-width:20em)and (max-width:108.125em) {
-  .elements {
-    width: clamp(25rem ,22.1631205674rem + 14.1843971631vw ,37.5rem)
-  }
   .elements {
     padding-right: clamp(.0000000625rem ,-1.4184396396rem + 7.0921985106vw ,6.25rem)
   }
