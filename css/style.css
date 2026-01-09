@@ -1759,7 +1759,7 @@ main {
   height: 100%;
   top: 0;
   left: 0;
-  background: url(../img/norm.webp) 0 0/cover no-repeat;
+  background: url(../img/norm.gif) 0 0/cover no-repeat;
   opacity: .3;
   -o-object-fit: cover;
   object-fit: cover
