@@ -4761,7 +4761,7 @@
             cubeBlocks.style = "display: flex;";
         }, 1e3);
         if (window.matchMedia("(max-width: 767.98px)").matches) setTimeout(() => {
-            cubeBlocks.style = "display: grid;";
+            cubeBlocks.style = "display: flex;";
         }, 1e3);
         cubeItems.forEach(cubeItem => {
             setTimeout(() => {
@@ -4789,7 +4789,6 @@
     const header = document.querySelector(".header");
     buttons.forEach(button => {
         button.addEventListener("click", function() {
-            cubeOpen();
             document.querySelectorAll(".elements__btn").forEach(btn => {
                 btn.disabled = false;
             });
@@ -4801,11 +4800,21 @@
             });
             if (this.classList.contains("elements__btn--cube")) header.classList.add("_cube"); else header.classList.remove("_cube");
             if (this.classList.contains("elements__btn--bw")) header.classList.add("_bw"); else header.classList.remove("_bw");
-            cubeItems.forEach(cubeItem => {
-                cubeItem.classList.remove("_open");
-                cubeItem.classList.remove("_hide");
-                cubeItem.style = "display: flex;";
-            });
+            if (this.classList.contains("elements__btn--cube")) {
+                cubeOpen();
+                cubeItems.forEach(cubeItem => {
+                    cubeItem.classList.remove("_open");
+                    cubeItem.classList.remove("_hide");
+                    cubeItem.style = "display: flex;";
+                });
+            } else {
+                cubeBlocks.style = "display: none;";
+                cubeItems.forEach(cubeItem => {
+                    cubeItem.classList.remove("_open");
+                    cubeItem.classList.remove("_hide");
+                    cubeItem.style = "display: none;";
+                });
+            }
         });
     });
     for (let i = 0; i < buttons.length; i++) buttons[i].addEventListener("click", function() {

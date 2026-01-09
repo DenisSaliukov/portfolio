@@ -161,7 +161,7 @@ h6 {
   font-size: inherit
 }
 body {
-  height: 100vh
+  min-height: 100vh
 }
 .lock body {
   overflow: hidden;
@@ -696,12 +696,6 @@ body::after {
 main {
   background-color: #000
 }
-.wrapper {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  position: relative
-}
 .page {
   position: relative;
   min-height: 100vh;
@@ -868,14 +862,14 @@ main {
   position: relative;
   z-index: 2;
   background-color: rgba(0,0,0,0);
-  padding: 9.375rem 0 3.125rem 0;
   transition: right 1.3s ease-in 0s
 }
 .action__container {
   height: 100%;
   width: 100%;
   display: flex;
-  flex-direction: row
+  flex-direction: row;
+  padding-top: 8.75rem
 }
 .visible .action__container {
   -webkit-animation: jump 1s linear 1s 1 both;
@@ -1772,7 +1766,6 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  left: .625rem;
   color: #14689f;
   visibility: hidden;
   opacity: 0;
@@ -2240,7 +2233,8 @@ main {
   width: 100%;
   opacity: 0;
   transition: all 1s ease 0s;
-  visibility: hidden
+  visibility: hidden;
+  z-index: 1
 }
 .section--cube.visible {
   opacity: 1;
@@ -2265,7 +2259,10 @@ main {
   padding-right: 1.25rem;
   visibility: hidden;
   opacity: 0;
-  transition: all 1.5s ease 1s
+  transition: all 1.5s ease 1s;
+  padding-top: 6.875rem;
+  padding-bottom: 1.875rem;
+  background: url(../img/sneg-na-chernom-fone-2.gif) 0 0/cover no-repeat
 }
 .visible .cube__content {
   visibility: visible;
@@ -2284,7 +2281,8 @@ main {
   background-attachment: fixed;
   -webkit-filter: blur(8px);
   filter: blur(8px);
-  transition: all .8s ease 0s
+  transition: all .8s ease 0s;
+  opacity: .9
 }
 ._open .cube__content::before {
   -webkit-filter: blur(0);
@@ -2312,15 +2310,18 @@ main {
   border-radius: .625rem;
   background: var(--img) no-repeat center center/cover;
   background-attachment: fixed;
-  transition: all .5s ease 0s;
+  transition: all .5s linear 0s;
   cursor: pointer;
   color: #fff;
   visibility: hidden;
-  flex: 0 1 20%
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 0 1 50%
 }
 .cube__item._biggest {
-  height: 65%;
-  box-shadow: 0 0 15px 3px rgba(255,255,255,.151)
+  box-shadow: 2px 10px 15px 3px rgba(0,0,0,.151)
 }
 .cube__item._hide {
   opacity: 0;
@@ -2361,13 +2362,13 @@ main {
   width: 100%;
   height: 100%;
   max-width: 81.25rem;
-  padding-top: 8.625rem;
-  padding-bottom: 5rem;
+  overflow: hidden;
   z-index: 1;
   display: none
 }
 .cube__inner._open {
-  display: flex
+  display: flex;
+  box-shadow: 0 0 15px 3px rgba(12,12,12,.151)
 }
 .cube__inner-item {
   width: 100%;
@@ -2448,6 +2449,14 @@ main {
   z-index: 1;
   -webkit-animation: cube-filter-bf 1s ease .5s both;
   animation: cube-filter-bf 1s ease .5s both
+}
+.cube__slider {
+  height: 100%
+}
+.cube__slide {
+  display: flex;
+  align-items: center;
+  justify-content: center
 }
 .cube__slide svg {
   max-width: 100%;
@@ -2543,7 +2552,7 @@ main {
   }
 }
 :root {
-  --img: url("../img/bridge/12_norilsk.webp")
+  --img: url("../img/glass.webp")
 }
 .swiper {
   overflow: hidden
@@ -2670,8 +2679,8 @@ main {
   .page__bg {
     font-size: 12.5rem
   }
-  .action {
-    padding-bottom: 3.125rem
+  .action__container {
+    padding-bottom: 2.5rem
   }
   .action__block {
     border-radius: 3.125rem
@@ -2752,6 +2761,9 @@ main {
     top: 1.25rem
   }
   .violet__btn {
+    left: .625rem
+  }
+  .violet__btn {
     font-size: 1.875rem
   }
   .violet__content {
@@ -2808,6 +2820,21 @@ main {
   .violet-works {
     padding-top: 5.3125rem
   }
+  .cube__blocks {
+    gap: 2.5rem
+  }
+  .cube__title {
+    width: 6.25rem
+  }
+  .cube__title {
+    height: 6.25rem
+  }
+  .cube__title {
+    border-width: .1875rem
+  }
+  .cube__title {
+    font-size: 1.125rem
+  }
   .cube__inner-content {
     font-size: 1.125rem
   }
@@ -2828,7 +2855,7 @@ main {
   .page__bg {
     font-size: 5rem
   }
-  .action {
+  .action__container {
     padding-bottom: 1.25rem
   }
   .action__block {
@@ -2943,6 +2970,9 @@ main {
     top: .3125rem
   }
   .violet__btn {
+    left: .0000000625rem
+  }
+  .violet__btn {
     font-size: 1.5625rem
   }
   .violet__content {
@@ -3002,6 +3032,21 @@ main {
   .cube__blocks {
     max-width: 43.75rem
   }
+  .cube__blocks {
+    gap: .625rem
+  }
+  .cube__title {
+    width: 4.375rem
+  }
+  .cube__title {
+    height: 4.375rem
+  }
+  .cube__title {
+    border-width: .125rem
+  }
+  .cube__title {
+    font-size: .875rem
+  }
   .cube__inner-content {
     font-size: 1rem
   }
@@ -3022,6 +3067,9 @@ main {
     display: flex;
     flex-direction: column;
     padding-top: 6.25rem
+  }
+  .action__container {
+    padding-top: 2.5rem
   }
   .action__container {
     flex-direction: column
@@ -3095,6 +3143,9 @@ main {
     -webkit-animation: balls-3 1ms ease 5.4s 1 both,balls-4 1.2s ease 6s 1 both;
     animation: balls-3 1ms ease 5.4s 1 both,balls-4 1.2s ease 6s 1 both
   }
+  .action__container {
+    padding-top: 0
+  }
   .decor {
     display: none
   }
@@ -3139,16 +3190,12 @@ main {
     opacity: 0
   }
   .cube__blocks {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    grid-template-rows: repeat(2,1fr);
-    gap: .9375rem;
-    padding-top: 6.625rem;
-    padding-bottom: 1.875rem
+    flex-direction: column
   }
   .cube__item {
     width: 100%;
-    height: 100%
+    height: 100%;
+    flex: 1 1 auto
   }
 }
 @media (max-width:29.99875em) {
@@ -3169,8 +3216,8 @@ main {
   .page__bg {
     font-size: clamp(5rem ,3.2978723404rem + 8.5106382979vw ,12.5rem)
   }
-  .action {
-    padding-bottom: clamp(1.25rem ,.8244680851rem + 2.1276595745vw ,3.125rem)
+  .action__container {
+    padding-bottom: clamp(1.25rem ,.9663120567rem + 1.4184397163vw ,2.5rem)
   }
   .action__block {
     border-radius: clamp(1.5625rem ,1.2078900709rem + 1.7730496454vw ,3.125rem)
@@ -3251,6 +3298,9 @@ main {
     top: clamp(.3125rem ,.0997340426rem + 1.0638297872vw ,1.25rem)
   }
   .violet__btn {
+    left: clamp(.0000000625rem ,-.1418438949rem + .7092197872vw ,.625rem)
+  }
+  .violet__btn {
     font-size: clamp(1.5625rem ,1.4915780142rem + .3546099291vw ,1.875rem)
   }
   .violet__content {
@@ -3306,6 +3356,21 @@ main {
   }
   .violet-works {
     padding-top: clamp(4.0625rem ,3.7788120567rem + 1.4184397163vw ,5.3125rem)
+  }
+  .cube__blocks {
+    gap: clamp(.625rem ,.1994680851rem + 2.1276595745vw ,2.5rem)
+  }
+  .cube__title {
+    width: clamp(4.375rem ,3.9494680851rem + 2.1276595745vw ,6.25rem)
+  }
+  .cube__title {
+    height: clamp(4.375rem ,3.9494680851rem + 2.1276595745vw ,6.25rem)
+  }
+  .cube__title {
+    border-width: clamp(.125rem ,.1108156028rem + .0709219858vw ,.1875rem)
+  }
+  .cube__title {
+    font-size: clamp(.875rem ,.8182624113rem + .2836879433vw ,1.125rem)
   }
   .cube__inner-content {
     font-size: clamp(1rem ,.9716312057rem + .1418439716vw ,1.125rem)
