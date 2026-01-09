@@ -2552,7 +2552,7 @@ main {
   }
 }
 :root {
-  --img: url("../img/glass.webp")
+  --img: url("../img/glass.jpg")
 }
 .swiper {
   overflow: hidden
@@ -2634,7 +2634,7 @@ main {
     padding-right: 1.875rem
   }
   .swiper-pagination-bullet::after {
-    background-image: url(../img/arrow.webp)
+    background-image: url(../img/arrow.png)
   }
 }
 @media (min-width:106.25em) {
