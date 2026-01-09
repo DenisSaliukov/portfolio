@@ -447,6 +447,9 @@ body::after {
   left: 0;
   z-index: 3
 }
+.header._cube {
+  height: 8.625rem
+}
 .header__wrap {
   height: 100%;
   position: relative
@@ -494,15 +497,26 @@ body::after {
 .elements__btn {
   z-index: 1;
   -webkit-transform: translateY(1px);
-  transform: translateY(1px)
+  transform: translateY(1px);
+  width: 4.375rem;
+  height: 4.375rem
 }
 .elements__btn svg {
+  transition: all .8s ease 0s;
   color: #000;
-  width: 3.875rem;
-  height: 3.875rem
+  width: 4.25rem;
+  height: 4.25rem
 }
 .elements__element {
   width: 4.375rem
+}
+._cube .elements__element {
+  -webkit-animation: cube-btns 2.3s ease .2s 1 both;
+  animation: cube-btns 2.3s ease .2s 1 both
+}
+._bw .elements__element {
+  -webkit-animation: bw-btns 2.3s ease .2s 1 both;
+  animation: bw-btns 2.3s ease .2s 1 both
 }
 .elements__line {
   width: .1875rem;
@@ -535,6 +549,13 @@ body::after {
   -webkit-animation: balls-1 1ms ease 4.8s 1 both,balls-2 1.2s ease 6s 1 both;
   animation: balls-1 1ms ease 4.8s 1 both,balls-2 1.2s ease 6s 1 both;
   position: absolute
+}
+._cube .elements__block {
+  background-color: rgba(0,0,0,0);
+  transition: all .5s ease 0s
+}
+._cube .elements__block svg {
+  color: rgba(255,255,255,.4)
 }
 .elements__element--two .elements__block {
   -webkit-animation: balls-1 1ms ease 5s 1 both,balls-2 1.2s ease 6s 1 both;
@@ -704,7 +725,7 @@ main {
 .page__bg._hide {
   -webkit-animation: blur-1 1.5s linear 1.2 both;
   animation: blur-1 1.5s linear 1.2 both;
-  transition: visibility 1.2s ease 0s;
+  transition: visibility 1.3s ease 0s;
   visibility: hidden
 }
 @-webkit-keyframes blur {
@@ -1993,6 +2014,10 @@ main {
   display: flex;
   align-items: center
 }
+.cube .violet__contact-item img {
+  transition: all .5s ease 0s;
+  opacity: .5
+}
 @-webkit-keyframes gradient-border {
   0% {
     background-position: 0 0
@@ -2123,6 +2148,13 @@ main {
   z-index: -1;
   border-radius: 1.25rem
 }
+.cube__inner-content--swiper .violet-works__swiper-wrapper {
+  background: 0 0
+}
+.cube__inner-content--swiper .violet-works__swiper-wrapper::before {
+  background: 0 0;
+  opacity: 0
+}
 .violet-works__icon img {
   position: absolute;
   width: 3.75rem;
@@ -2132,6 +2164,12 @@ main {
   z-index: 1;
   -webkit-animation: brightness 3s linear infinite;
   animation: brightness 3s linear infinite
+}
+.section--cube .violet-works__icon img {
+  border-radius: 50%;
+  overflow: hidden;
+  -webkit-animation: none;
+  animation: none
 }
 .violet-works__slider {
   border-radius: 1.25rem
@@ -2196,6 +2234,316 @@ main {
   animation: gradient-border 8s linear infinite;
   max-width: 18.75rem;
   background-image: linear-gradient(45deg,#8e33f7,#2b28d1,#132ea8,#7630d1,#5073b8,#1098ad,#0dbad1,#6f83ba)
+}
+.section--cube {
+  height: 100vh;
+  width: 100%;
+  opacity: 0;
+  transition: all 1s ease 0s;
+  visibility: hidden
+}
+.section--cube.visible {
+  opacity: 1;
+  transition: all 1s ease 0s;
+  visibility: visible
+}
+.cube {
+  height: 100%
+}
+.cube__container {
+  height: 100%
+}
+.cube__content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 1.5s ease 1s
+}
+.visible .cube__content {
+  visibility: visible;
+  z-index: 1;
+  opacity: 1;
+  transition: all 1.5s ease 1s
+}
+.cube__content::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: var(--img) no-repeat center center/cover;
+  background-attachment: fixed;
+  -webkit-filter: blur(8px);
+  filter: blur(8px);
+  transition: all .8s ease 0s
+}
+._open .cube__content::before {
+  -webkit-filter: blur(0);
+  filter: blur(0)
+}
+.cube__blocks {
+  width: 100%;
+  height: 100%;
+  max-width: 62.5rem;
+  z-index: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: -1
+}
+.visible .cube__blocks {
+  z-index: 1
+}
+.cube__item {
+  -webkit-filter: blur(0)!important;
+  filter: blur(0)!important;
+  height: 50%;
+  width: 25%;
+  border-radius: .625rem;
+  background: var(--img) no-repeat center center/cover;
+  background-attachment: fixed;
+  transition: all .5s ease 0s;
+  cursor: pointer;
+  color: #fff;
+  visibility: hidden;
+  flex: 0 1 20%
+}
+.cube__item._biggest {
+  height: 65%;
+  box-shadow: 0 0 15px 3px rgba(255,255,255,.151)
+}
+.cube__item._hide {
+  opacity: 0;
+  transition: all 1.2s ease 1s;
+  -webkit-filter: blur(8px)!important;
+  filter: blur(8px)!important;
+  visibility: hidden;
+  -webkit-animation: cube-hide-item 1.5s ease both;
+  animation: cube-hide-item 1.5s ease both
+}
+.cube__item._hide .cube__title {
+  transition: all 1.2s ease 0s;
+  -webkit-filter: blur(50px);
+  filter: blur(50px)
+}
+.cube__item._visible {
+  -webkit-animation: cube-filter-item 1s ease both;
+  animation: cube-filter-item 1s ease both
+}
+.cube__preview {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+.cube__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 6.25rem;
+  height: 6.25rem;
+  border: 4px solid #fff;
+  transition: all 1s ease 0s
+}
+.cube__inner {
+  width: 100%;
+  height: 100%;
+  max-width: 81.25rem;
+  padding-top: 8.625rem;
+  padding-bottom: 5rem;
+  z-index: 1;
+  display: none
+}
+.cube__inner._open {
+  display: flex
+}
+.cube__inner-item {
+  width: 100%;
+  height: 100%;
+  display: none;
+  color: #fff;
+  transition: all 1.2s ease 0s;
+  padding: .9375rem;
+  padding-top: 1.5625rem
+}
+.cube__inner-item._open {
+  display: flex;
+  flex-direction: column;
+  position: relative
+}
+.cube__inner-item._open::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: var(--img) no-repeat center center/cover;
+  background-attachment: fixed;
+  transition: all 1.2s ease 0s;
+  z-index: 0;
+  -webkit-filter: blur(8px);
+  filter: blur(8px);
+  -webkit-animation: cube-filter-bf 1s ease 0s both;
+  animation: cube-filter-bf 1s ease 0s both
+}
+.cube__inner-item._closed {
+  -webkit-animation: cube-hide-item 3.5s ease both;
+  animation: cube-hide-item 3.5s ease both
+}
+.cube__btn {
+  display: inline-flex;
+  z-index: 1;
+  align-items: center;
+  font-size: 1.5625rem;
+  cursor: pointer;
+  margin-bottom: .625rem
+}
+.cube__btn span {
+  transition: all .3s ease 0s;
+  display: block;
+  -webkit-transform: scale(1);
+  transform: scale(1)
+}
+.cube__btn svg {
+  width: 2.5rem;
+  height: 2.5rem
+}
+._open .cube__btn {
+  -webkit-animation: cube-filter-bf 1s ease .5s both;
+  animation: cube-filter-bf 1s ease .5s both
+}
+.cube__inner-content {
+  margin: 0 auto;
+  width: 80%;
+  height: 100%;
+  display: none;
+  text-align: justify;
+  text-align: center;
+  line-height: 1.1111111111
+}
+.cube__inner-content--swiper {
+  width: 100%
+}
+.cube__inner-content h2 {
+  margin-bottom: .625rem
+}
+._open .cube__inner-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 1;
+  -webkit-animation: cube-filter-bf 1s ease .5s both;
+  animation: cube-filter-bf 1s ease .5s both
+}
+.cube__slide svg {
+  max-width: 100%;
+  margin-bottom: 1.25rem;
+  opacity: .7
+}
+@-webkit-keyframes cube-btns {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+@keyframes cube-btns {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+@-webkit-keyframes bw-btns {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+@keyframes bw-btns {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+@-webkit-keyframes cube-filter-bf {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+@keyframes cube-filter-bf {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+@-webkit-keyframes cube-filter-item {
+  0% {
+    opacity: 0;
+    visibility: hidden
+  }
+  100% {
+    visibility: visible;
+    opacity: 1
+  }
+}
+@keyframes cube-filter-item {
+  0% {
+    opacity: 0;
+    visibility: hidden
+  }
+  100% {
+    visibility: visible;
+    opacity: 1
+  }
+}
+@-webkit-keyframes cube-hide-item {
+  0% {
+    opacity: 1;
+    visibility: visible
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0
+  }
+}
+@keyframes cube-hide-item {
+  0% {
+    opacity: 1;
+    visibility: visible
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0
+  }
+}
+:root {
+  --img: url("../img/bridge/12_norilsk.webp")
 }
 .swiper {
   overflow: hidden
@@ -2304,6 +2652,9 @@ main {
   }
   .action__contact-item img {
     height: 3.125rem
+  }
+  .cube__blocks {
+    max-width: 62.5rem
   }
 }
 @media (min-width:108.125em) {
@@ -2456,6 +2807,12 @@ main {
   }
   .violet-works {
     padding-top: 5.3125rem
+  }
+  .cube__inner-content {
+    font-size: 1.125rem
+  }
+  .cube__inner-content h2 {
+    font-size: 1.25rem
   }
 }
 @media (max-width:20em) {
@@ -2642,6 +2999,15 @@ main {
   .violet-works {
     padding-top: 4.0625rem
   }
+  .cube__blocks {
+    max-width: 43.75rem
+  }
+  .cube__inner-content {
+    font-size: 1rem
+  }
+  .cube__inner-content h2 {
+    font-size: 1.125rem
+  }
 }
 @media (max-width:61.99875em) {
   .section--bw {
@@ -2771,6 +3137,18 @@ main {
   }
   .violet__video {
     opacity: 0
+  }
+  .cube__blocks {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    gap: .9375rem;
+    padding-top: 6.625rem;
+    padding-bottom: 1.875rem
+  }
+  .cube__item {
+    width: 100%;
+    height: 100%
   }
 }
 @media (max-width:29.99875em) {
@@ -2929,6 +3307,12 @@ main {
   .violet-works {
     padding-top: clamp(4.0625rem ,3.7788120567rem + 1.4184397163vw ,5.3125rem)
   }
+  .cube__inner-content {
+    font-size: clamp(1rem ,.9716312057rem + .1418439716vw ,1.125rem)
+  }
+  .cube__inner-content h2 {
+    font-size: clamp(1.125rem ,1.0966312057rem + .1418439716vw ,1.25rem)
+  }
 }
 @media (min-width:20em)and (max-width:106.25em) {
   .action__block {
@@ -2954,6 +3338,9 @@ main {
   }
   .action__contact-item img {
     height: clamp(1.875rem ,1.5851449275rem + 1.4492753623vw ,3.125rem)
+  }
+  .cube__blocks {
+    max-width: clamp(43.75rem ,39.402173913rem + 21.7391304348vw ,62.5rem)
   }
 }
 @media (max-width:61.99875em)and (min-width:106.25em) {
@@ -2995,6 +3382,13 @@ main {
     height: .25rem;
     box-shadow: 0 0 14px 5px rgba(145,199,240,.2)
   }
+  .elements__btn:hover svg {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg)
+  }
+  ._cube .elements__block:hover svg {
+    color: rgba(255,255,255,.7)
+  }
   .top-block__btn:hover {
     opacity: .7
   }
@@ -3022,8 +3416,18 @@ main {
     -webkit-transform: scale(1.5) rotate(90deg);
     transform: scale(1.5) rotate(90deg)
   }
-  .violet__contact-item:hover img {
+  .violet__contact-item a:hover img {
     -webkit-transform: scale(1.1);
     transform: scale(1.1)
+  }
+  .cube .violet__contact-item:hover img {
+    opacity: 1
+  }
+  .cube__preview:hover .cube__title {
+    border-radius: .3125rem
+  }
+  .cube__btn:hover span {
+    -webkit-transform: scale(.9);
+    transform: scale(.9)
   }
 }

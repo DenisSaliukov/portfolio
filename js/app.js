@@ -4683,6 +4683,22 @@
             loop: true,
             on: {}
         });
+        if (document.querySelector(".cube__slider")) new swiper_core_Swiper(".cube__slider", {
+            modules: [ Mousewheel, Navigation, EffectFade ],
+            observer: true,
+            observeParents: true,
+            slidesPerView: 1,
+            spaceBetween: 10,
+            centeredSlides: true,
+            navigation: {
+                nextEl: ".popup-nav__right",
+                prevEl: ".popup-nav__left"
+            },
+            speed: 1e3,
+            mousewheel: true,
+            loop: true,
+            on: {}
+        });
     }
     window.addEventListener("load", function(e) {
         initSliders();
@@ -4728,6 +4744,36 @@
     document.querySelectorAll(".section");
     const buttons = document.querySelectorAll(".elements__btn");
     const sectionsItems = document.querySelectorAll(".section");
+    const cubeItems = document.querySelectorAll(".cube__item");
+    const cubeInnerItems = document.querySelectorAll(".cube__inner-item");
+    const cubeBlocks = document.querySelector(".cube__blocks");
+    const cubeInner = document.querySelector(".cube__inner");
+    const sectionCube = document.querySelector(".section--cube");
+    const cubeBtns = document.querySelectorAll(".cube__btn");
+    const cubeOpen = () => {
+        sectionCube.classList.remove("_open");
+        cubeInner.classList.remove("_open");
+        cubeInnerItems.forEach(cubeInnerItem => {
+            cubeInnerItem.classList.remove("_open");
+            cubeInnerItem.classList.add("_closed");
+        });
+        setTimeout(() => {
+            cubeBlocks.style = "display: flex;";
+        }, 1e3);
+        if (window.matchMedia("(max-width: 767.98px)").matches) setTimeout(() => {
+            cubeBlocks.style = "display: grid;";
+        }, 1e3);
+        cubeItems.forEach(cubeItem => {
+            setTimeout(() => {
+                cubeItem.style = "display: flex;";
+            }, 1e3);
+            cubeItem.classList.remove("_hide");
+            cubeItem.classList.add("_visible");
+        });
+    };
+    cubeBtns.forEach(cubeBtn => {
+        cubeBtn.addEventListener("click", cubeOpen);
+    });
     startBtn.addEventListener("click", function() {
         function showFirstBlock() {
             bw.classList.add("_open");
@@ -4740,8 +4786,10 @@
     });
     const violetPreview = document.querySelectorAll(".violet__preview");
     const elementsBlocks = document.querySelectorAll(".elements__block");
+    const header = document.querySelector(".header");
     buttons.forEach(button => {
         button.addEventListener("click", function() {
+            cubeOpen();
             document.querySelectorAll(".elements__btn").forEach(btn => {
                 btn.disabled = false;
             });
@@ -4750,6 +4798,13 @@
                 elementsBlock.classList.add("_violet");
             }); else elementsBlocks.forEach(elementsBlock => {
                 elementsBlock.classList.remove("_violet");
+            });
+            if (this.classList.contains("elements__btn--cube")) header.classList.add("_cube"); else header.classList.remove("_cube");
+            if (this.classList.contains("elements__btn--bw")) header.classList.add("_bw"); else header.classList.remove("_bw");
+            cubeItems.forEach(cubeItem => {
+                cubeItem.classList.remove("_open");
+                cubeItem.classList.remove("_hide");
+                cubeItem.style = "display: flex;";
             });
         });
     });
@@ -4794,7 +4849,6 @@
     violetBlocks.forEach(violet => {
         violet.addEventListener("click", function(e) {
             e.target;
-            console.log(e.target);
             document.querySelectorAll(".violet__item").forEach(blockViolet => {
                 blockViolet.classList.remove("_active");
             });
@@ -4844,6 +4898,47 @@
         setTimeout(() => {
             violetMain[i].style = "display: flex;";
         }, 1e3);
+    });
+    cubeItems.forEach(cubeItem => {
+        cubeItem.addEventListener("mouseenter", () => {
+            cubeItems.forEach(otherItem => {
+                otherItem.classList.remove("_biggest");
+                otherItem.classList.add("_smaller");
+            });
+            cubeItem.classList.remove("_smaller");
+            cubeItem.classList.add("_biggest");
+        });
+        cubeItem.addEventListener("mouseleave", () => {
+            cubeItems.forEach(otherItem => {
+                otherItem.classList.remove("_biggest");
+                otherItem.classList.remove("_smaller");
+            });
+        });
+        cubeItem.addEventListener("click", () => {
+            sectionCube.classList.add("_open");
+            cubeItems.forEach(otherItem => {
+                otherItem.classList.remove("_open");
+                otherItem.classList.add("_hide");
+                otherItem.classList.remove("_visible");
+                setTimeout(() => {
+                    otherItem.style = "display: none;";
+                }, 1e3);
+                setTimeout(() => {
+                    cubeBlocks.style = "display: none;";
+                }, 1e3);
+            });
+            setTimeout(() => {
+                cubeInner.classList.add("_open");
+            }, 1e3);
+        });
+        for (let i = 0; i < cubeItems.length; i++) cubeItems[i].addEventListener("click", () => {
+            cubeInnerItems.forEach(cubeInnerItem => {
+                cubeInnerItem.classList.remove("_open");
+                cubeInnerItem.classList.add("_closed");
+            });
+            cubeInnerItems[i].classList.remove("_closed");
+            cubeInnerItems[i].classList.add("_open");
+        });
     });
     window["FLS"] = true;
     spollers();
