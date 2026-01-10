@@ -4637,7 +4637,7 @@
             observer: true,
             observeParents: true,
             slidesPerView: 1,
-            spaceBetween: 10,
+            spaceBetween: 30,
             centeredSlides: true,
             navigation: {
                 nextEl: ".skills__slider-btn--right",
