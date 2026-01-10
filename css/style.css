@@ -1237,7 +1237,6 @@ main {
   width: 100%;
   height: 100%;
   display: flex;
-  padding: 3.75rem 6.875rem 5.625rem 1.25rem;
   -webkit-animation: title 2s linear 1s 1 both;
   animation: title 2s linear 1s 1 both;
   justify-content: center
@@ -2611,6 +2610,20 @@ main {
     transform: rotate(50deg)
   }
 }
+@media (min-width:47.99875em)and (min-width:108.125em) {
+  .works {
+    padding-top: 3.75rem
+  }
+  .works {
+    padding-right: 6.875rem
+  }
+  .works {
+    padding-bottom: 5.625rem
+  }
+  .works {
+    padding-left: 1.25rem
+  }
+}
 @media (min-width:61.99875em) {
   .action__label {
     -webkit-transform-origin: left;
@@ -2734,18 +2747,6 @@ main {
   }
   .decor__small {
     height: .9375rem
-  }
-  .works {
-    padding-top: 3.75rem
-  }
-  .works {
-    padding-right: 6.875rem
-  }
-  .works {
-    padding-bottom: 5.625rem
-  }
-  .works {
-    padding-left: 1.25rem
   }
   .skills__slider-btn--left {
     margin-left: 6.25rem
@@ -2940,18 +2941,6 @@ main {
   }
   .decor__small {
     height: .5625rem
-  }
-  .works {
-    padding-top: 1.875rem
-  }
-  .works {
-    padding-right: .625rem
-  }
-  .works {
-    padding-bottom: 2.5rem
-  }
-  .works {
-    padding-left: 1.25rem
   }
   .skills__slider-btn--left {
     margin-left: .0000000625rem
@@ -3270,18 +3259,6 @@ main {
   .decor__small {
     height: clamp(.5625rem ,.477393617rem + .4255319149vw ,.9375rem)
   }
-  .works {
-    padding-top: clamp(1.875rem ,1.4494680851rem + 2.1276595745vw ,3.75rem)
-  }
-  .works {
-    padding-right: clamp(.625rem ,-.7934397163rem + 7.0921985816vw ,6.875rem)
-  }
-  .works {
-    padding-bottom: clamp(2.5rem ,1.7907801418rem + 3.5460992908vw ,5.625rem)
-  }
-  .works {
-    padding-left: clamp(1.25rem ,1.25rem + 0 ,1.25rem)
-  }
   .skills__slider-btn--left {
     margin-left: clamp(.0000000625rem ,-1.4184396396rem + 7.0921985106vw ,6.25rem)
   }
@@ -3436,6 +3413,34 @@ main {
   }
   .action__contact-list {
     padding-right: clamp(.3125rem ,-.431569764rem + 3.7203488199vw ,1.875rem)
+  }
+}
+@media (min-width:47.99875em)and (min-width:20em)and (max-width:108.125em) {
+  .works {
+    padding-top: clamp(1.875rem ,1.4494680851rem + 2.1276595745vw ,3.75rem)
+  }
+  .works {
+    padding-right: clamp(.625rem ,-.7934397163rem + 7.0921985816vw ,6.875rem)
+  }
+  .works {
+    padding-bottom: clamp(2.5rem ,1.7907801418rem + 3.5460992908vw ,5.625rem)
+  }
+  .works {
+    padding-left: clamp(1.25rem ,1.25rem + 0 ,1.25rem)
+  }
+}
+@media (min-width:47.99875em)and (max-width:20em) {
+  .works {
+    padding-top: 1.875rem
+  }
+  .works {
+    padding-right: .625rem
+  }
+  .works {
+    padding-bottom: 2.5rem
+  }
+  .works {
+    padding-left: 1.25rem
   }
 }
 @media (any-hover:hover) {
