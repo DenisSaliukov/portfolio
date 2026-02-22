@@ -6,12 +6,12 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20260114222658">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260222181115">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js?_v=20260114222658"></script> -->
-	<!-- <script src="js/files/jquery.rotating-slider.min.js?_v=20260114222658"></script> -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js?_v=20260222181115"></script> -->
+	<!-- <script src="js/files/jquery.rotating-slider.min.js?_v=20260222181115"></script> -->
 </head>
 
 <body style="display: none;">
@@ -23,7 +23,7 @@
 						<div class="elements__line"></div>
 						<div class="elements__block">
 							<button type="button" class="elements__btn elements__btn--bw">
-								<svg>
+								<svg class="elements__svg">
 									<use xlink:href="img/icons/icons.svg#contrast"></use>
 								</svg>
 							</button>
@@ -33,7 +33,7 @@
 						<div class="elements__line"></div>
 						<div class="elements__block">
 							<button type="button" class="elements__btn elements__btn--violet">
-								<svg>
+								<svg class="elements__svg">
 									<use xlink:href="img/icons/icons.svg#blocks"></use>
 								</svg>
 							</button>
@@ -43,7 +43,7 @@
 						<div class="elements__line"></div>
 						<div class="elements__block">
 							<button type="button" class="elements__btn elements__btn--cube">
-								<svg>
+								<svg class="elements__svg">
 									<use xlink:href="img/icons/icons.svg#mw"></use>
 								</svg>
 							</button>
@@ -52,9 +52,11 @@
 					<li class="elements__element elements__element--four">
 						<div class="elements__line"></div>
 						<div class="elements__block">
-							<button type="button" class="elements__btn"><svg>
+							<button type="button" class="elements__btn elements__btn--parallax">
+								<svg class="elements__svg">
 									<use xlink:href="img/icons/icons.svg#parallax"></use>
-								</svg></button>
+								</svg>
+							</button>
 						</div>
 
 					</li>
@@ -69,13 +71,10 @@
 		<main class="page">
 
 			<div class="page__bg bg">
-				<span>
+				<span class="bg__letters">
 					h t m l > b o d y< s t r o n g { } p d i v / m a i n < a r t i c l e < & s p a n / s u m m a r y d e t a i l s </span>
 			</div>
 			<div class="top-block">
-				<!-- <video muted autoplay class="top-block__video">
-					<source src="files/bg_video.mp4" type="video/mp4">
-				</video> -->
 
 				<img class="top-block__video" src="img/bg.gif" alt="gif">
 				<div class="top-block__btn-wrap">
@@ -658,6 +657,7 @@
 					</div>
 				</div>
 			</section>
+
 			<section class="section section--cube">
 
 				<div class="cube">
@@ -929,51 +929,306 @@
 			</section>
 
 			<section class="section section--parallax">
-				<div class="parallax">
-					<div class="parallax__slider swiper">
-						<div class="parallax__wrapper swiper-wrapper">
-							<div class="parallax__slide swiper-slide">
-								<div class="parallax__slide-layer" data-swiper-parallax="35%" style="background-image: url('img/parallax/01-back.png');">
-								</div>
-								<div class="parallax__slide-layer" data-swiper-parallax="25%" style="background-image: url('img/parallax/01-middle.png');">
-								</div>
-								<div class="parallax__slide-layer" data-swiper-parallax="15%" style="background-image: url('img/parallax/01-front.png');">
+				<div class="section--parallax__slider swiper">
+					<div class="section--parallax__wrapper swiper-wrapper">
+						<div class="section--parallax__slide swiper-slide">
+							<div class="inner-parallax">
+
+								<div class="inner-parallax__layers parallax-layers">
+									<div class="parallax-layers__layer" style="background-image: url(img/parallax/slide-one.jpg);" data-swiper-parallax="30%"></div>
+									<div class="parallax-layers__layer" style="background-image: url(img/parallax/slide-one-2.png);" data-swiper-parallax="22%"></div>
+									<div class="parallax-layers__layer" style="background-image: url(img/parallax/slide-one-3.png);" data-swiper-parallax="10%"></div>
 								</div>
 
-								<div class="parallax__content">
+								<div class="inner-parallax__container">
+									<div class="letters">
+										<div class="letters__wrapper">
+											<div class="letters__letter letters__letter--left">
+												<img class="letters__item" src="img/letters/pp.png" alt="img">
+											</div>
+											<div style="width: 36px;" class="letters__letter letters__letter--up">
+												<img class="letters__item" src="img/letters/rr.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--left">
+												<img class="letters__item" src="img/letters/ii.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--left">
+												<img class="letters__item" src="img/letters/vv.png" alt="img">
+											</div>
+											<div style="width: 36px;" class="letters__letter letters__letter--up">
+												<img class="letters__item" src="img/letters/ee.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--down">
+												<img class="letters__item" src="img/letters/tt.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--left">
+												<img class="letters__item" src="img/letters/ss.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--down">
+												<img class="letters__item" src="img/letters/tt.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--left">
+												<img class="letters__item" src="img/letters/vv.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--left">
+												<img class="letters__item" src="img/letters/uu.png" alt="img">
+											</div>
+											<div style="width: 47px;" class="letters__letter letters__letter--right">
+												<img class="letters__item" src="img/letters/yy.png" alt="img">
+											</div>
 
-								</div>
-							</div>
-							<div class="parallax__slide swiper-slide">
-								<div class="parallax__slide-layer" data-swiper-parallax="35%" style="background-image: url('img/parallax/02-back.png');">
-								</div>
-								<div class="parallax__slide-layer" data-swiper-parallax="25%" style="background-image: url('img/parallax/02-middle.png');">
-								</div>
-								<div class="parallax__slide-layer" data-swiper-parallax="15%" style="background-image: url('img/parallax/02-front.png');">
-								</div>
-							</div>
-							<div class="parallax__slide swiper-slide">
-								<div class="parallax__slide-layer" data-swiper-parallax="35%" style="background-image: url('img/parallax/03-back.jpg');">
-								</div>
-								<div class="parallax__slide-layer" data-swiper-parallax="27%" style="background-image: url('img/parallax/03-middle-back.png');">
-								</div>
-								<div class="parallax__slide-layer" data-swiper-parallax="20%" style="background-image: url('img/parallax/03-middle.png');">
-								</div>
-								<div class="parallax__slide-layer" data-swiper-parallax="15%" style="background-image: url('img/parallax/03-front.png');">
-								</div>
-							</div>
-							<div class="parallax__slide swiper-slide">
-								<div class="parallax__slide-layer" data-swiper-parallax="35%" style="background-image: url('img/parallax/04-back.jpg');">
-								</div>
-								<div class="parallax__slide-layer" data-swiper-parallax="25%" style="background-image: url('img/parallax/04-middle.png');">
-								</div>
-								<div class="parallax__slide-layer" data-swiper-parallax="15%" style="background-image: url('img/parallax/04-front.png');">
-								</div>
-							</div>
+										</div>
+									</div>
 
+									<div class="inner-parallax__content">
+										<div class="inner-parallax__text">Lorem ipsum, dolor sit amet consectetur
+											adipisicing elit.
+											At quis, pariatur dignissimos iste culpa, rerum perferendis dolorem veniam
+											sit
+											consectetur voluptatum voluptatibus fugiat quo consequatur, id reiciendis
+											rem tenetur
+											facilis?</div>
+									</div>
+
+									<button type="button" class="inner-parallax__more-btn actives">
+										<img src="img/letters/more.png" alt="image">
+									</button>
+									<div class="inner-parallax__pagin">
+										<button type="button" class="inner-parallax__pagin-btn">
+											<img src="img/letters/ring.png" alt="image">
+										</button>
+										<button type="button" class="inner-parallax__pagin-btn">
+											<img src="img/letters/ring.png" alt="image">
+										</button>
+										<button type="button" class="inner-parallax__pagin-btn">
+											<img src="img/letters/ring.png" alt="image">
+										</button>
+										<button type="button" class="inner-parallax__pagin-btn">
+											<img src="img/letters/ring.png" alt="image">
+										</button>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+						<div class="section--parallax__slide swiper-slide">
+							<div class="inner-parallax">
+								<div class="inner-parallax__container">
+									<div class="letters">
+										<div class="letters__wrapper">
+											<div class="letters__letter letters__letter--left">
+												<img class="letters__item" src="img/letters/nn.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--down">
+												<img class="letters__item" src="img/letters/aa.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--left">
+												<img class="letters__item" src="img/letters/vv.png" alt="img">
+											</div>
+											<div style="width: 50px;" class="letters__letter letters__letter--left">
+												<img class="letters__item" src="img/letters/yiyi.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--right">
+												<img class="letters__item" src="img/letters/kk.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--left">
+												<img class="letters__item" src="img/letters/ii.png" alt="img">
+											</div>
+
+										</div>
+									</div>
+
+									<div class="inner-parallax__content">
+										<div class="inner-parallax__text">Lorem ipsum, dolor sit amet consectetur
+											adipisicing elit.
+											At quis, pariatur dignissimos iste culpa, rerum perferendis dolorem veniam
+											sit
+											consectetur voluptatum voluptatibus fugiat quo consequatur, id reiciendis
+											rem tenetur
+											facilis?</div>
+									</div>
+
+									<button type="button" class="inner-parallax__more-btn actives">
+										<img src="img/letters/more.png" alt="image">
+									</button>
+									<div class="inner-parallax__pagin">
+										<button type="button" class="inner-parallax__pagin-btn">
+											<img src="img/letters/ring.png" alt="image">
+										</button>
+										<button type="button" class="inner-parallax__pagin-btn">
+											<img src="img/letters/ring.png" alt="image">
+										</button>
+										<button type="button" class="inner-parallax__pagin-btn">
+											<img src="img/letters/ring.png" alt="image">
+										</button>
+										<button type="button" class="inner-parallax__pagin-btn">
+											<img src="img/letters/ring.png" alt="image">
+										</button>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+						<div class="section--parallax__slide swiper-slide">
+							<div class="inner-parallax">
+
+								<div class="inner-parallax__container">
+									<div class="letters">
+										<div class="letters__wrapper">
+											<div class="letters__letter letters__letter--left">
+												<img class="letters__item" src="img/letters/pp.png" alt="img">
+											</div>
+											<div style="width: 36px;" class="letters__letter letters__letter--up">
+												<img class="letters__item" src="img/letters/rr.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--left">
+												<img class="letters__item" src="img/letters/ii.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--left">
+												<img class="letters__item" src="img/letters/vv.png" alt="img">
+											</div>
+											<div style="width: 36px;" class="letters__letter letters__letter--up">
+												<img class="letters__item" src="img/letters/ee.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--down">
+												<img class="letters__item" src="img/letters/tt.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--left">
+												<img class="letters__item" src="img/letters/ss.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--down">
+												<img class="letters__item" src="img/letters/tt.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--left">
+												<img class="letters__item" src="img/letters/vv.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--left">
+												<img class="letters__item" src="img/letters/uu.png" alt="img">
+											</div>
+											<div style="width: 47px;" class="letters__letter letters__letter--right">
+												<img class="letters__item" src="img/letters/yy.png" alt="img">
+											</div>
+
+										</div>
+									</div>
+
+									<div class="inner-parallax__content">
+										<div class="inner-parallax__text">Lorem ipsum, dolor sit amet consectetur
+											adipisicing elit.
+											At quis, pariatur dignissimos iste culpa, rerum perferendis dolorem veniam
+											sit
+											consectetur voluptatum voluptatibus fugiat quo consequatur, id reiciendis
+											rem tenetur
+											facilis?</div>
+									</div>
+
+									<button type="button" class="inner-parallax__more-btn actives">
+										<img src="img/letters/more.png" alt="image">
+									</button>
+									<div class="inner-parallax__pagin">
+										<button type="button" class="inner-parallax__pagin-btn">
+											<img src="img/letters/ring.png" alt="image">
+										</button>
+										<button type="button" class="inner-parallax__pagin-btn">
+											<img src="img/letters/ring.png" alt="image">
+										</button>
+										<button type="button" class="inner-parallax__pagin-btn">
+											<img src="img/letters/ring.png" alt="image">
+										</button>
+										<button type="button" class="inner-parallax__pagin-btn">
+											<img src="img/letters/ring.png" alt="image">
+										</button>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+						<div class="section--parallax__slide swiper-slide">
+							<div class="inner-parallax">
+
+								<div class="inner-parallax__container">
+									<div class="letters">
+										<div class="letters__wrapper">
+											<div class="letters__letter letters__letter--left">
+												<img class="letters__item" src="img/letters/pp.png" alt="img">
+											</div>
+											<div style="width: 36px;" class="letters__letter letters__letter--up">
+												<img class="letters__item" src="img/letters/rr.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--left">
+												<img class="letters__item" src="img/letters/ii.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--left">
+												<img class="letters__item" src="img/letters/vv.png" alt="img">
+											</div>
+											<div style="width: 36px;" class="letters__letter letters__letter--up">
+												<img class="letters__item" src="img/letters/ee.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--down">
+												<img class="letters__item" src="img/letters/tt.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--left">
+												<img class="letters__item" src="img/letters/ss.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--down">
+												<img class="letters__item" src="img/letters/tt.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--left">
+												<img class="letters__item" src="img/letters/vv.png" alt="img">
+											</div>
+											<div class="letters__letter letters__letter--left">
+												<img class="letters__item" src="img/letters/uu.png" alt="img">
+											</div>
+											<div style="width: 47px;" class="letters__letter letters__letter--right">
+												<img class="letters__item" src="img/letters/yy.png" alt="img">
+											</div>
+
+										</div>
+									</div>
+
+									<div class="inner-parallax__content">
+										<div class="inner-parallax__text">Lorem ipsum, dolor sit amet consectetur
+											adipisicing elit.
+											At quis, pariatur dignissimos iste culpa, rerum perferendis dolorem veniam
+											sit
+											consectetur voluptatum voluptatibus fugiat quo consequatur, id reiciendis
+											rem tenetur
+											facilis?</div>
+									</div>
+
+									<button type="button" class="inner-parallax__more-btn actives">
+										<img src="img/letters/more.png" alt="image">
+									</button>
+									<div class="inner-parallax__pagin">
+										<button type="button" class="inner-parallax__pagin-btn">
+											<img src="img/letters/ring.png" alt="image">
+										</button>
+										<button type="button" class="inner-parallax__pagin-btn">
+											<img src="img/letters/ring.png" alt="image">
+										</button>
+										<button type="button" class="inner-parallax__pagin-btn">
+											<img src="img/letters/ring.png" alt="image">
+										</button>
+										<button type="button" class="inner-parallax__pagin-btn">
+											<img src="img/letters/ring.png" alt="image">
+										</button>
+									</div>
+								</div>
+
+
+							</div>
 						</div>
 					</div>
+					<div class="main-hidden-pagination" style="display:none"></div>
 				</div>
+
+
+
+
+
 			</section>
 
 
@@ -986,7 +1241,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20260114222658"></script>
+	<script src="js/app.min.js?_v=20260222181115"></script>
 	<div id="popup-violet" aria-hidden="true" class="popup">
 		<div class="popup__wrapper">
 			<div class="popup__content">
@@ -1087,6 +1342,12 @@
 
 								<div class="violet-popup-slide__img">
 									<img src="img/norilsk/14.jpg" alt="image">
+								</div>
+							</div>
+							<div class="popup__slide swiper-slide violet-popup-slide">
+
+								<div class="violet-popup-slide__img">
+									<img src="img/norilsk/15.webp" alt="image">
 								</div>
 							</div>
 						</div>

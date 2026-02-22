@@ -4701,6 +4701,7 @@
             })
         });
     }
+    let highlightInterval = null;
     function initSliders() {
         if (document.querySelector(".works__slider")) new swiper_core_Swiper(".works__slider", {
             modules: [ Scrollbar, Mousewheel, Pagination ],
@@ -4800,6 +4801,81 @@
             loop: true,
             on: {}
         });
+        if (document.querySelector(".section--parallax__slider")) {
+            const parallaxSlider = new swiper_core_Swiper(".section--parallax__slider", {
+                modules: [ Mousewheel, Pagination, Parallax ],
+                observer: true,
+                observeParents: true,
+                slidesPerView: 1,
+                spaceBetween: 10,
+                centeredSlides: true,
+                initialSlide: 0,
+                parallax: true,
+                pagination: {
+                    el: ".main-hidden-pagination",
+                    clickable: true
+                },
+                renderBullet: function(index, className) {
+                    return `<span class="${className}">\n                <span class="bullet-inner-icon"></span>\n              </span>`;
+                },
+                direction: "vertical",
+                speed: 1e3,
+                mousewheel: true,
+                loop: false,
+                on: {
+                    paginationRender: function(s, paginationEl) {
+                        const localPags = s.el.querySelectorAll(".inner-parallax__pagin");
+                        localPags.forEach(p => p.innerHTML = paginationEl.innerHTML);
+                    },
+                    init: function() {
+                        const activeSlide = this.slides[this.activeIndex];
+                        startHighlighting(activeSlide);
+                    },
+                    slideChangeTransitionStart: function() {
+                        clearInterval(highlightInterval);
+                        this.el.querySelectorAll(".active, .rest").forEach(el => {
+                            el.classList.remove("active", "rest");
+                        });
+                    },
+                    slideChangeTransitionEnd: function() {
+                        this.slides.forEach(slide => {
+                            if (!slide.classList.contains("swiper-slide-active")) {
+                                const targets = slide.querySelectorAll(".hide, .open");
+                                targets.forEach(el => el.classList.remove("hide", "open"));
+                            }
+                        });
+                        const activeSlide = this.slides[this.activeIndex];
+                        startHighlighting(activeSlide);
+                    }
+                }
+            });
+            const sliderContainer = document.querySelector(".section--parallax__slider");
+            sliderContainer.addEventListener("click", e => {
+                if (e.target.classList.contains("swiper-pagination-bullet")) {
+                    const index = Array.from(e.target.parentElement.children).indexOf(e.target);
+                    parallaxSlider.slideTo(index);
+                }
+            });
+        }
+    }
+    function startHighlighting(activeSlide) {
+        const letters = activeSlide.querySelectorAll(".letters__letter");
+        if (letters.length === 0) return;
+        highlightInterval = setInterval(() => {
+            const availableItems = [ ...letters ].filter(item => !item.classList.contains("active") && !item.classList.contains("rest"));
+            const countToSelect = Math.min(1, availableItems.length);
+            const selected = availableItems.sort(() => .5 - Math.random()).slice(0, countToSelect);
+            selected.forEach(item => {
+                item.classList.add("active");
+                setTimeout(() => {
+                    item.classList.remove("active");
+                    item.classList.add("rest");
+                    setTimeout(() => {
+                        item.classList.remove("rest");
+                    }, 3e3);
+                }, 2e3);
+            });
+        }, 600);
     }
     window.addEventListener("load", function(e) {
         initSliders();
@@ -4901,6 +4977,7 @@
             });
             if (this.classList.contains("elements__btn--cube")) header.classList.add("_cube"); else header.classList.remove("_cube");
             if (this.classList.contains("elements__btn--bw")) header.classList.add("_bw"); else header.classList.remove("_bw");
+            if (this.classList.contains("elements__btn--parallax")) header.classList.add("_parallax"); else header.classList.remove("_parallax");
             if (this.classList.contains("elements__btn--cube")) {
                 cubeOpen();
                 cubeItems.forEach(cubeItem => {
@@ -5049,6 +5126,46 @@
             cubeInnerItems[i].classList.remove("_closed");
             cubeInnerItems[i].classList.add("_open");
         });
+    });
+    const textElement = document.querySelector(".bg__letters");
+    const script_text = textElement.textContent;
+    const wrappedText = script_text.split("").map(char => char === " " ? " " : `<span class="bg__letter">${char}</span>`).join("");
+    textElement.innerHTML = wrappedText;
+    document.querySelectorAll(".bg__letter").forEach(letter => {
+        const duration = (3 + Math.random() * 4).toFixed(2);
+        const delay = (Math.random() * 5).toFixed(2);
+        letter.style.animation = `flicker ${duration}s ease-in-out ${delay}s infinite alternate`;
+        letter.style.left = Math.random() * 95 + "%";
+        letter.style.top = Math.random() * 95 + "%";
+    });
+    const letters = document.querySelectorAll(".letters__letter");
+    letters.forEach(letter => {
+        letter.addEventListener("mouseenter", function() {
+            letter.classList.add("active");
+        });
+        letter.addEventListener("mouseout", function() {
+            setTimeout(() => {
+                letter.classList.remove("active");
+            }, 2e3);
+        });
+    });
+    const actives = document.querySelectorAll(".actives");
+    actives.forEach(active => {
+        active.addEventListener("mouseenter", function() {
+            active.classList.add("active");
+        });
+        active.addEventListener("mouseout", function() {
+            setTimeout(() => {
+                active.classList.remove("active");
+            }, 800);
+        });
+    });
+    const moreBtn = document.querySelectorAll(".inner-parallax__more-btn");
+    const lettersWrapper = document.querySelectorAll(".letters");
+    const parallaxContainer = document.querySelectorAll(".inner-parallax__container");
+    for (let i = 0; i < moreBtn.length; i++) moreBtn[i].addEventListener("click", function() {
+        lettersWrapper[i].classList.add("hide");
+        parallaxContainer[i].classList.add("open");
     });
     window["FLS"] = true;
     spollers();
