@@ -5167,6 +5167,58 @@
         lettersWrapper[i].classList.add("hide");
         parallaxContainer[i].classList.add("open");
     });
+    let particles = document.querySelectorAll(".particles"), radius = 1.35, number = Math.floor(window.innerWidth / 20);
+    particles.forEach(node => {
+        const ctx = node.getContext("2d"), color = node.dataset.color || "#ffffff", clr = hexToRgbA(color), width = window.innerWidth, height = window.innerHeight;
+        node.width = width;
+        node.height = height;
+        let dots = {
+            num: number,
+            array: [],
+            velocity: -.5
+        };
+        function Dot() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.vx = dots.velocity + Math.random();
+            this.vy = dots.velocity + Math.random();
+            this.radius = Math.random() * radius;
+        }
+        Dot.prototype.update = function() {
+            if (this.x < 0 || this.x > width) this.vx = -this.vx;
+            if (this.y < 0 || this.y > height) this.vy = -this.vy;
+            this.x += this.vx;
+            this.y += this.vy;
+        };
+        Dot.prototype.draw = function() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+            ctx.fillStyle = clr;
+            ctx.fill();
+        };
+        function init() {
+            for (let i = 0; i < dots.num; i++) dots.array.push(new Dot);
+        }
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            dots.array.forEach(dot => {
+                dot.update();
+                dot.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+        init();
+        animate();
+    });
+    function hexToRgbA(hex) {
+        if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
+            let c = hex.substring(1).split("");
+            if (c.length == 3) c = [ c[0], c[0], c[1], c[1], c[2], c[2] ];
+            let val = `0x${c.join("")}`;
+            return `rgba(${val >> 16 & 255}, ${val >> 8 & 255}, ${val & 255}, 1)`;
+        }
+        return "rgba(255, 255, 255, 1)";
+    }
     window["FLS"] = true;
     spollers();
 })();

@@ -2766,7 +2766,16 @@ main {
 }
 .inner-parallax__text {
   opacity: 0;
-  max-width: 59.375rem
+  max-width: 59.375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+  text-shadow: 0 0 10px rgba(0,0,0,.8),0 0 5px rgba(0,0,0,.9)
+}
+.inner-parallax__text h3 {
+  font-family: Rostov
 }
 .open .inner-parallax__text {
   -webkit-animation: text-active 2s linear 1.5s 1 both;
@@ -2821,11 +2830,13 @@ main {
   transform: translateY(-50%)
 }
 .section--parallax__slider .swiper-pagination-bullet {
+  -webkit-tap-highlight-color: transparent;
   width: 1.625rem;
   height: 1.4375rem;
   overflow: hidden
 }
 .section--parallax__slider .swiper-pagination-bullet::before {
+  -webkit-tap-highlight-color: transparent;
   content: "";
   width: 1.625rem;
   height: 2.875rem;
@@ -2833,13 +2844,18 @@ main {
   background: url(../img/letters/ring.png) 0 0 no-repeat
 }
 .section--parallax__slider .swiper-pagination-bullet::after {
+  -webkit-tap-highlight-color: transparent;
   content: "";
   display: none
+}
+.section--parallax__slider .swiper-pagination-bullet-active {
+  -webkit-tap-highlight-color: transparent
 }
 .section--parallax__slider .swiper-pagination-bullet-active::before {
   content: "";
   -webkit-transform: translateY(-50%);
-  transform: translateY(-50%)
+  transform: translateY(-50%);
+  -webkit-tap-highlight-color: transparent
 }
 @-webkit-keyframes title-active {
   0% {
@@ -3296,6 +3312,9 @@ main {
   .cube__inner-content h2 {
     font-size: 1.25rem
   }
+  .inner-parallax__text {
+    font-size: 1.875rem
+  }
 }
 @media (max-width:20em) {
   .elements {
@@ -3492,6 +3511,9 @@ main {
   }
   .cube__inner-content h2 {
     font-size: 1.125rem
+  }
+  .inner-parallax__text {
+    font-size: 1rem
   }
 }
 @media (max-width:61.99875em) {
@@ -3832,6 +3854,9 @@ main {
   }
   .cube__inner-content h2 {
     font-size: clamp(1.125rem ,1.0966312057rem + .1418439716vw ,1.25rem)
+  }
+  .inner-parallax__text {
+    font-size: clamp(1rem ,.8014184397rem + .9929078014vw ,1.875rem)
   }
 }
 @media (min-width:20em)and (max-width:106.25em) {
