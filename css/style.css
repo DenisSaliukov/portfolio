@@ -919,6 +919,7 @@ main {
   height: 100vh
 }
 .section--bw {
+  height: 100dvh;
   right: -100%;
   transition: right 1.3s ease-in 0s
 }
@@ -1370,10 +1371,7 @@ main {
   align-items: center;
   gap: .9375rem
 }
-.swiper {
-  width: 100%
-}
-.swiper-pagination-bullet {
+.works__pagination .swiper-pagination-bullet {
   position: relative;
   display: block;
   width: 1.25rem;
@@ -1381,7 +1379,7 @@ main {
   border-radius: 50%;
   cursor: pointer
 }
-.swiper-pagination-bullet::before {
+.works__pagination .swiper-pagination-bullet::before {
   content: "";
   position: absolute;
   width: .9375rem;
@@ -1394,16 +1392,18 @@ main {
   -webkit-transform: scale(1);
   transform: scale(1)
 }
-.swiper-pagination-bullet::after {
+.works__pagination .swiper-pagination-bullet::after {
   content: "";
   position: absolute
 }
-.swiper-pagination-bullet.swiper-pagination-bullet-active::after {
+.works__pagination .swiper-pagination-bullet.swiper-pagination-bullet-active::after {
   content: "";
-  transition: all .8s ease 0s;
   -webkit-transform: scale(-1) scale(1);
   transform: scale(-1) scale(1);
   opacity: 1
+}
+.swiper {
+  width: 100%
 }
 .skills__block {
   width: 100%;
@@ -2725,6 +2725,40 @@ main {
   gap: 1.875rem;
   padding-bottom: 2.5rem
 }
+.inner-parallax__pagin .swiper-pagination-bullet {
+  -webkit-tap-highlight-color: transparent;
+  width: 1.625rem;
+  height: 1.4375rem;
+  overflow: hidden;
+  background-color: rgba(0,0,0,0)
+}
+.inner-parallax__pagin .swiper-pagination-bullet::before {
+  -webkit-tap-highlight-color: transparent;
+  content: "";
+  width: 1.625rem;
+  height: 2.875rem;
+  transition: all .1s ease 0s;
+  background: url(../img/letters/ring.png) 0 0 no-repeat;
+  position: relative;
+  background-color: rgba(0,0,0,0)
+}
+.inner-parallax__pagin .swiper-pagination-bullet::after {
+  -webkit-tap-highlight-color: transparent;
+  content: "";
+  display: none;
+  background-color: rgba(0,0,0,0)
+}
+.inner-parallax__pagin .swiper-pagination-bullet-active {
+  background-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent
+}
+.inner-parallax__pagin .swiper-pagination-bullet-active::before {
+  background-color: rgba(0,0,0,0);
+  content: "";
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-tap-highlight-color: transparent
+}
 .inner-parallax__pagin-btn {
   width: 1.25rem;
   height: 1.0625rem;
@@ -2757,14 +2791,15 @@ main {
 .inner-parallax__content {
   overflow: hidden;
   display: flex;
+  flex: 0 0 0%;
   height: 0
 }
 .open .inner-parallax__content {
-  flex: 1 0 auto;
   -webkit-animation: content-active 2s ease 0s 1 both;
   animation: content-active 2s ease 0s 1 both
 }
 .inner-parallax__text {
+  height: 100%;
   opacity: 0;
   max-width: 59.375rem;
   display: flex;
@@ -2778,8 +2813,8 @@ main {
   font-family: Rostov
 }
 .open .inner-parallax__text {
-  -webkit-animation: text-active 2s linear 1.5s 1 both;
-  animation: text-active 2s linear 1.5s 1 both
+  -webkit-animation: text-active 1s linear 2s 1 both;
+  animation: text-active 1s linear 2s 1 both
 }
 .letters {
   position: relative
@@ -2790,12 +2825,14 @@ main {
 }
 .letters__wrapper {
   display: flex;
-  flex-wrap: wrap
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center
 }
 .letters__letter {
   overflow: hidden;
-  width: 2.375rem;
-  height: 3.8125rem;
+  width: 1.9375rem;
+  height: 3.0625rem;
   display: flex;
   position: relative
 }
@@ -2828,34 +2865,6 @@ main {
 .letters__letter--up.active .letters__item {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%)
-}
-.section--parallax__slider .swiper-pagination-bullet {
-  -webkit-tap-highlight-color: transparent;
-  width: 1.625rem;
-  height: 1.4375rem;
-  overflow: hidden
-}
-.section--parallax__slider .swiper-pagination-bullet::before {
-  -webkit-tap-highlight-color: transparent;
-  content: "";
-  width: 1.625rem;
-  height: 2.875rem;
-  transition: all .1s ease 0s;
-  background: url(../img/letters/ring.png) 0 0 no-repeat
-}
-.section--parallax__slider .swiper-pagination-bullet::after {
-  -webkit-tap-highlight-color: transparent;
-  content: "";
-  display: none
-}
-.section--parallax__slider .swiper-pagination-bullet-active {
-  -webkit-tap-highlight-color: transparent
-}
-.section--parallax__slider .swiper-pagination-bullet-active::before {
-  content: "";
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-tap-highlight-color: transparent
 }
 @-webkit-keyframes title-active {
   0% {
@@ -2907,17 +2916,29 @@ main {
 }
 @-webkit-keyframes content-active {
   0% {
+    height: 0;
     flex: 0 0 0%
   }
+  99% {
+    height: 0;
+    flex: 1 0 auto
+  }
   100% {
+    height: auto;
     flex: 1 0 auto
   }
 }
 @keyframes content-active {
   0% {
+    height: 0;
     flex: 0 0 0%
   }
+  99% {
+    height: 0;
+    flex: 1 0 auto
+  }
   100% {
+    height: auto;
     flex: 1 0 auto
   }
 }
@@ -2974,6 +2995,17 @@ main {
     filter: blur(0);
     opacity: 1
   }
+}
+.section--parallax__slider.swiper {
+  position: relative
+}
+.section--parallax__slider.swiper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 20px 80px 100px -50px rgba(0,0,0,.9);
+  z-index: 10;
+  pointer-events: none
 }
 .section--parallax__slide.swiper-slide {
   overflow: hidden;
@@ -3110,7 +3142,7 @@ main {
   .action__contact-list {
     padding-right: 1.875rem
   }
-  .swiper-pagination-bullet::after {
+  .works__pagination .swiper-pagination-bullet::after {
     width: 1.875rem;
     height: 1.6875rem;
     top: -.1875rem;
@@ -3566,24 +3598,16 @@ main {
     width: 100%;
     padding-bottom: .1875rem
   }
-  .swiper-pagination-bullet::after {
-    width: .625rem;
-    height: .625rem;
+  .works__pagination .swiper-pagination-bullet::after {
+    width: .5625rem;
+    height: .5625rem;
     background-color: #fff;
-    border-bottom-right-radius: .3125rem;
-    top: -1px;
-    left: -1px
-  }
-  .swiper-pagination-bullet.swiper-pagination-bullet-active::after {
-    width: .625rem;
-    height: .625rem;
-    background-color: #fff;
-    border-top-left-radius: .3125rem;
-    top: -1px;
-    left: -1px
-  }
-  .swiper-pagination-bullet.swiper-pagination-bullet-active::before {
-    background-color: #777
+    border-radius: 50%;
+    top: .25rem;
+    left: .25rem;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    transition: all .8s ease 0s
   }
 }
 @media (max-width:61.99875em)and (max-width:20em) {

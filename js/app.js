@@ -4807,7 +4807,7 @@
                 observer: true,
                 observeParents: true,
                 slidesPerView: 1,
-                spaceBetween: 10,
+                spaceBetween: 0,
                 centeredSlides: true,
                 initialSlide: 0,
                 parallax: true,
@@ -4964,6 +4964,7 @@
     const violetPreview = document.querySelectorAll(".violet__preview");
     const elementsBlocks = document.querySelectorAll(".elements__block");
     const header = document.querySelector(".header");
+    const lettersBlock = document.querySelectorAll(".letters");
     buttons.forEach(button => {
         button.addEventListener("click", function() {
             document.querySelectorAll(".elements__btn").forEach(btn => {
@@ -4991,6 +4992,14 @@
                     cubeItem.classList.remove("_open");
                     cubeItem.classList.remove("_hide");
                     cubeItem.style = "display: none;";
+                });
+            }
+            if (!button.classList.contains("elements__btn--parallax")) {
+                parallaxContainer.forEach(container => {
+                    container.classList.remove("open");
+                });
+                lettersBlock.forEach(letter => {
+                    letter.classList.remove("hide");
                 });
             }
         });
