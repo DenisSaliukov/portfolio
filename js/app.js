@@ -4996,10 +4996,14 @@
             }
             if (!button.classList.contains("elements__btn--parallax")) {
                 parallaxContainer.forEach(container => {
-                    container.classList.remove("open");
+                    setTimeout(() => {
+                        container.classList.remove("open");
+                    }, 2e3);
                 });
                 lettersBlock.forEach(letter => {
-                    letter.classList.remove("hide");
+                    setTimeout(() => {
+                        letter.classList.remove("hide");
+                    }, 2e3);
                 });
             }
         });
