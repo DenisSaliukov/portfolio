@@ -4787,28 +4787,15 @@
             loop: true,
             on: {}
         });
-        if (document.querySelector(".parallax__slider")) new swiper_core_Swiper(".parallax__slider", {
-            modules: [ Scrollbar, Mousewheel, Parallax ],
-            observer: true,
-            observeParents: true,
-            slidesPerView: 1,
-            spaceBetween: 0,
-            centeredSlides: true,
-            speed: 1700,
-            direction: "vertical",
-            mousewheel: true,
-            parallax: true,
-            loop: true,
-            on: {}
-        });
         if (document.querySelector(".section--parallax__slider")) {
             const parallaxSlider = new swiper_core_Swiper(".section--parallax__slider", {
-                modules: [ Mousewheel, Pagination, Parallax ],
+                modules: [ Mousewheel, Pagination, Parallax, Navigation ],
                 observer: true,
                 observeParents: true,
                 slidesPerView: 1,
                 spaceBetween: 0,
                 centeredSlides: true,
+                observeSlideChildren: true,
                 initialSlide: 0,
                 parallax: true,
                 pagination: {
@@ -4816,12 +4803,16 @@
                     clickable: true
                 },
                 renderBullet: function(index, className) {
-                    return `<span class="${className}">\n                <span class="bullet-inner-icon"></span>\n              </span>`;
+                    return `<span class="${className}">\n                <span class="bullet-inner-icon"></span>\n            </span>`;
                 },
                 direction: "vertical",
                 speed: 1e3,
                 mousewheel: true,
                 loop: false,
+                navigation: {
+                    nextEl: ".section--parallax__nav-down",
+                    prevEl: ".section--parallax__nav-up"
+                },
                 on: {
                     paginationRender: function(s, paginationEl) {
                         const localPags = s.el.querySelectorAll(".inner-parallax__pagin");

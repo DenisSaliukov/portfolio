@@ -2705,12 +2705,21 @@ main {
   justify-content: center;
   align-items: center;
   color: #fff;
+  position: relative;
   z-index: 1
 }
 .section--parallax.visible {
   opacity: 1;
   transition: all 1s ease 1s;
   visibility: visible
+}
+.section--parallax__nav-down,
+.section--parallax__nav-up {
+  cursor: pointer
+}
+.section--parallax__nav-up {
+  -webkit-transform: rotate(180deg) translateY(.1875rem);
+  transform: rotate(180deg) translateY(.1875rem)
 }
 .inner-parallax {
   position: relative;
@@ -2726,19 +2735,30 @@ main {
   align-items: center;
   gap: 1.875rem;
   height: 100%;
-  justify-content: center
+  justify-content: center;
+  width: 100%
+}
+.inner-parallax__container--works {
+  padding-top: 6.25rem;
+  padding-bottom: 6.25rem
+}
+.inner-parallax__buttons {
+  position: relative;
+  display: flex;
+  gap: 1.25rem;
+  padding-bottom: 2.5rem
 }
 .inner-parallax__pagin {
   display: flex;
-  gap: 1.875rem;
-  padding-bottom: 2.5rem
+  gap: 1.875rem
 }
 .inner-parallax__pagin .swiper-pagination-bullet {
   -webkit-tap-highlight-color: transparent;
   width: 1.625rem;
   height: 1.4375rem;
   overflow: hidden;
-  background-color: rgba(0,0,0,0)
+  background-color: rgba(0,0,0,0);
+  cursor: pointer
 }
 .inner-parallax__pagin .swiper-pagination-bullet::before {
   -webkit-tap-highlight-color: transparent;
@@ -2793,14 +2813,22 @@ main {
   transform: translateY(-50%)
 }
 .open .inner-parallax__more-btn {
+  transition: all 1s ease 0s;
   -webkit-transform: scale(0);
-  transform: scale(0)
+  transform: scale(0);
+  height: 0
 }
 .inner-parallax__content {
   overflow: hidden;
   display: flex;
   flex: 0 0 0%;
-  height: 0
+  height: 0;
+  width: 100%;
+  justify-content: center;
+  align-items: center
+}
+.inner-parallax__content--works {
+  max-height: 100%
 }
 .open .inner-parallax__content {
   -webkit-animation: content-active 2s ease 0s 1 both;
@@ -2824,6 +2852,128 @@ main {
   -webkit-animation: text-active 1s linear 2s 1 both;
   animation: text-active 1s linear 2s 1 both
 }
+.inner-parallax__text--works {
+  height: 100%
+}
+.inner-parallax__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+.inner-parallax__cubes {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-template-rows: repeat(2,1fr);
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  padding-bottom: 1.25rem
+}
+.open .inner-parallax__cubes {
+  -webkit-animation: text-active 1s linear 2s 1 both;
+  animation: text-active 1s linear 2s 1 both
+}
+.inner-parallax__list {
+  height: 100vh;
+  margin: 0;
+  gap: .9375rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0
+}
+.inner-parallax__list .works__label {
+  top: 0;
+  border-radius: 0;
+  border: 2px solid rgba(255,255,255,.431372549);
+  border-top: none;
+  width: 40%;
+  border-bottom-right-radius: 1.25rem;
+  transition: all .5s ease 0s
+}
+.inner-parallax__item {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+  border-radius: 1.25rem;
+  border: 2px solid rgba(255,255,255,.431372549)
+}
+.inner-parallax__item a {
+  display: block;
+  height: 100%;
+  width: 100%
+}
+.inner-parallax__item img,
+.inner-parallax__item picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  transition: all .5s ease;
+  -o-object-position: center 35%;
+  object-position: center 35%;
+  -webkit-filter: blur(3px);
+  filter: blur(3px)
+}
+.inner-parallax__item:hover img {
+  width: 105%
+}
+.cube-container {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  -webkit-perspective: 1000px;
+  perspective: 1000px
+}
+.cube-container:hover .cube-box {
+  -webkit-transform: rotateY(-90deg);
+  transform: rotateY(-90deg)
+}
+.cube-box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  transition: -webkit-transform .6s cubic-bezier(.4,0,.2,1);
+  transition: transform .6s cubic-bezier(.4,0,.2,1);
+  transition: transform .6s cubic-bezier(.4,0,.2,1),-webkit-transform .6s cubic-bezier(.4,0,.2,1)
+}
+.cube-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  box-sizing: border-box
+}
+.front {
+  -webkit-transform: rotateY(0) translateZ(calc(var(--cube-size)/ 2));
+  transform: rotateY(0) translateZ(calc(var(--cube-size)/ 2));
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  padding: .9375rem;
+  padding-bottom: 1.25rem
+}
+.front svg {
+  width: 7.5rem;
+  max-width: 100%;
+  max-height: 100%
+}
+.side {
+  padding: 10px;
+  text-align: center;
+  -webkit-transform: rotateY(90deg) translateZ(calc(var(--cube-size)/ 2));
+  transform: rotateY(90deg) translateZ(calc(var(--cube-size)/ 2))
+}
 .letters {
   position: relative
 }
@@ -2842,7 +2992,8 @@ main {
   width: 1.9375rem;
   height: 3.0625rem;
   display: flex;
-  position: relative
+  position: relative;
+  cursor: pointer
 }
 .letters__item {
   position: absolute;
@@ -2902,6 +3053,38 @@ main {
   100% {
     -webkit-transform: translate(-400%,-400%) rotate(-80deg);
     transform: translate(-400%,-400%) rotate(-80deg);
+    -webkit-transform: scale(0);
+    transform: scale(0)
+  }
+}
+@-webkit-keyframes title-active-mobile {
+  0% {
+    -webkit-transform: translate(0,0);
+    transform: translate(0,0)
+  }
+  90% {
+    -webkit-transform: translate(0,-400%);
+    transform: translate(0,-400%)
+  }
+  100% {
+    -webkit-transform: translate(0,-400%);
+    transform: translate(0,-400%);
+    -webkit-transform: scale(0);
+    transform: scale(0)
+  }
+}
+@keyframes title-active-mobile {
+  0% {
+    -webkit-transform: translate(0,0);
+    transform: translate(0,0)
+  }
+  90% {
+    -webkit-transform: translate(0,-400%);
+    transform: translate(0,-400%)
+  }
+  100% {
+    -webkit-transform: translate(0,-400%);
+    transform: translate(0,-400%);
     -webkit-transform: scale(0);
     transform: scale(0)
   }
@@ -3047,7 +3230,9 @@ main {
   will-change: transform
 }
 :root {
-  --img: url("../img/glass.webp")
+  --img: url("../img/glass.webp");
+  --cube-size: 150px;
+  --cube-width: calc((100% / 5) - 16px)
 }
 * {
   -webkit-tap-highlight-color: transparent
@@ -3355,6 +3540,27 @@ main {
   .inner-parallax__text {
     font-size: 1.875rem
   }
+  .inner-parallax__cubes {
+    gap: 3.125rem
+  }
+  .inner-parallax__cubes {
+    padding-top: 6.25rem
+  }
+  .inner-parallax__cubes {
+    padding-left: 3.125rem
+  }
+  .inner-parallax__cubes {
+    padding-right: 3.125rem
+  }
+  .inner-parallax__cubes {
+    font-size: 1.25rem
+  }
+  .inner-parallax__list .works__label {
+    font-size: 1.25rem
+  }
+  .side {
+    font-size: 1.25rem
+  }
 }
 @media (max-width:20em) {
   .elements {
@@ -3555,6 +3761,27 @@ main {
   .inner-parallax__text {
     font-size: 1rem
   }
+  .inner-parallax__cubes {
+    gap: 1.25rem
+  }
+  .inner-parallax__cubes {
+    padding-top: .0000000625rem
+  }
+  .inner-parallax__cubes {
+    padding-left: .0000000625rem
+  }
+  .inner-parallax__cubes {
+    padding-right: .0000000625rem
+  }
+  .inner-parallax__cubes {
+    font-size: 1rem
+  }
+  .inner-parallax__list .works__label {
+    font-size: 1rem
+  }
+  .side {
+    font-size: .625rem
+  }
 }
 @media (max-width:61.99875em) {
   .section--bw {
@@ -3616,6 +3843,10 @@ main {
     -webkit-transform: scale(0);
     transform: scale(0);
     transition: all .8s ease 0s
+  }
+  .inner-parallax__cubes {
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(3,1fr)
   }
 }
 @media (max-width:61.99875em)and (max-width:20em) {
@@ -3718,10 +3949,29 @@ main {
     height: 100%;
     flex: 1 1 auto
   }
+  .inner-parallax__cubes {
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(4,1fr)
+  }
+  .inner-parallax__list .works__label {
+    width: 80%
+  }
 }
 @media (max-width:29.99875em) {
   .violet__text {
     overflow: auto
+  }
+  .inner-parallax__cubes {
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(5,1fr)
+  }
+  .front {
+    border-width: 1px;
+    padding: 3px 0 10px 0
+  }
+  .letters.hide {
+    -webkit-animation: title-active-mobile .8s ease 0s 1 both;
+    animation: title-active-mobile .8s ease 0s 1 both
   }
   .letters__wrapper {
     padding-top: 3.125rem
@@ -3889,6 +4139,27 @@ main {
   }
   .inner-parallax__text {
     font-size: clamp(1rem ,.8014184397rem + .9929078014vw ,1.875rem)
+  }
+  .inner-parallax__cubes {
+    gap: clamp(1.25rem ,.8244680851rem + 2.1276595745vw ,3.125rem)
+  }
+  .inner-parallax__cubes {
+    padding-top: clamp(.0000000625rem ,-1.4184396396rem + 7.0921985106vw ,6.25rem)
+  }
+  .inner-parallax__cubes {
+    padding-left: clamp(.0000000625rem ,-.7092197815rem + 3.5460992199vw ,3.125rem)
+  }
+  .inner-parallax__cubes {
+    padding-right: clamp(.0000000625rem ,-.7092197815rem + 3.5460992199vw ,3.125rem)
+  }
+  .inner-parallax__cubes {
+    font-size: clamp(1rem ,.9432624113rem + .2836879433vw ,1.25rem)
+  }
+  .inner-parallax__list .works__label {
+    font-size: clamp(1rem ,.9432624113rem + .2836879433vw ,1.25rem)
+  }
+  .side {
+    font-size: clamp(.625rem ,.4831560284rem + .7092198582vw ,1.25rem)
   }
 }
 @media (min-width:20em)and (max-width:106.25em) {
@@ -4058,5 +4329,8 @@ main {
   .cube__btn:hover span {
     -webkit-transform: scale(.9);
     transform: scale(.9)
+  }
+  .inner-parallax__item:hover .works__label {
+    width: 35%
   }
 }
