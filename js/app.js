@@ -4798,26 +4798,11 @@
                 observeSlideChildren: true,
                 initialSlide: 0,
                 parallax: true,
-                pagination: {
-                    el: ".main-hidden-pagination",
-                    clickable: true
-                },
-                renderBullet: function(index, className) {
-                    return `<span class="${className}">\n                <span class="bullet-inner-icon"></span>\n            </span>`;
-                },
                 direction: "vertical",
                 speed: 1e3,
                 mousewheel: true,
-                loop: false,
-                navigation: {
-                    nextEl: ".section--parallax__nav-down",
-                    prevEl: ".section--parallax__nav-up"
-                },
+                loop: true,
                 on: {
-                    paginationRender: function(s, paginationEl) {
-                        const localPags = s.el.querySelectorAll(".inner-parallax__pagin");
-                        localPags.forEach(p => p.innerHTML = paginationEl.innerHTML);
-                    },
                     init: function() {
                         const activeSlide = this.slides[this.activeIndex];
                         startHighlighting(activeSlide);
@@ -4962,11 +4947,18 @@
                 btn.disabled = false;
             });
             this.disabled = true;
-            if (this.classList.contains("elements__btn--violet")) elementsBlocks.forEach(elementsBlock => {
-                elementsBlock.classList.add("_violet");
-            }); else elementsBlocks.forEach(elementsBlock => {
-                elementsBlock.classList.remove("_violet");
-            });
+            if (this.classList.contains("elements__btn--download")) return;
+            if (this.classList.contains("elements__btn--violet")) {
+                header.classList.add("_violet");
+                elementsBlocks.forEach(elementsBlock => {
+                    elementsBlock.classList.add("_violet");
+                });
+            } else {
+                header.classList.remove("_violet");
+                elementsBlocks.forEach(elementsBlock => {
+                    elementsBlock.classList.remove("_violet");
+                });
+            }
             if (this.classList.contains("elements__btn--cube")) header.classList.add("_cube"); else header.classList.remove("_cube");
             if (this.classList.contains("elements__btn--bw")) header.classList.add("_bw"); else header.classList.remove("_bw");
             if (this.classList.contains("elements__btn--parallax")) header.classList.add("_parallax"); else header.classList.remove("_parallax");
@@ -5000,24 +4992,28 @@
         });
     });
     for (let i = 0; i < buttons.length; i++) buttons[i].addEventListener("click", function() {
-        blocks.forEach(block => {
-            block.classList.remove("_open");
-        });
-        sectionsItems.forEach(sectionItem => {
-            sectionItem.classList.remove("visible");
-            if (sectionItem.classList.contains("section--violet")) violetPreview.forEach(preview => {
-                preview.classList.remove("preview-off");
-                preview.classList.add("preview-on");
+        if (i !== 4) {
+            blocks.forEach(block => {
+                block.classList.remove("_open");
             });
-        });
-        sectionsItems[i].classList.add("visible");
-        let firstBlock = sectionsItems[i].querySelector(".action__block");
-        function showBlock() {
-            if (firstBlock) firstBlock.classList.add("_open");
+            sectionsItems.forEach(sectionItem => {
+                sectionItem.classList.remove("visible");
+                if (sectionItem.classList.contains("section--violet")) violetPreview.forEach(preview => {
+                    preview.classList.remove("preview-off");
+                    preview.classList.add("preview-on");
+                });
+            });
         }
-        setTimeout(showBlock, 1500);
-        page.classList.add("__hide");
-        bg.classList.add("_hide");
+        if (i !== 4) {
+            sectionsItems[i].classList.add("visible");
+            let firstBlock = sectionsItems[i].querySelector(".action__block");
+            function showBlock() {
+                if (firstBlock) firstBlock.classList.add("_open");
+            }
+            setTimeout(showBlock, 1500);
+            page.classList.add("__hide");
+            bg.classList.add("_hide");
+        }
         violetPreview.forEach(preview => {
             preview.style = "display: block;";
             preview.classList.add("preview-on");

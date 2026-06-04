@@ -470,7 +470,7 @@ body::after {
   }
 }
 .elements {
-  width: 40%;
+  width: 50%;
   height: 100%;
   margin-left: auto;
   display: flex;
@@ -511,8 +511,8 @@ body::after {
 .elements__btn svg {
   transition: all .8s ease 0s;
   color: #000;
-  width: 4.25rem;
-  height: 4.25rem
+  width: 3.75rem;
+  height: 3.75rem
 }
 .elements__element {
   width: 4.375rem
@@ -576,20 +576,95 @@ body::after {
   background-color: rgba(255,255,255,.4235294118);
   transition: all .5s ease 0s
 }
-.elements__element--two .elements__block {
+.elements__element--violet .elements__block {
   -webkit-animation: balls-1 1ms ease 5s 1 both,balls-2 1.2s ease 6s 1 both;
   animation: balls-1 1ms ease 5s 1 both,balls-2 1.2s ease 6s 1 both
 }
-.elements__element--three .elements__block {
+.elements__element--glass .elements__block {
   -webkit-animation: balls-1 1ms ease 5.2s 1 both,balls-2 1.2s ease 6s 1 both;
   animation: balls-1 1ms ease 5.2s 1 both,balls-2 1.2s ease 6s 1 both
 }
-.elements__element--four .elements__block {
+.elements__element--parallax .elements__block {
   -webkit-animation: balls-1 1ms ease 5.4s 1 both,balls-2 1.2s ease 6s 1 both;
   animation: balls-1 1ms ease 5.4s 1 both,balls-2 1.2s ease 6s 1 both
 }
+.elements__element--download .elements__block {
+  -webkit-animation: balls-1 1ms ease 5.6s 1 both,balls-2 1.2s ease 6s 1 both;
+  animation: balls-1 1ms ease 5.6s 1 both,balls-2 1.2s ease 6s 1 both
+}
 .elements__block._parallax {
   opacity: .5!important
+}
+.elements__tips {
+  text-align: center;
+  position: absolute;
+  background-color: #fff;
+  width: 150%;
+  left: -85%;
+  bottom: -40%;
+  background-size: 300%;
+  opacity: 0;
+  visibility: hidden;
+  padding: .125rem .625rem;
+  transition: all .8s ease 0s;
+  border-radius: .0625rem;
+  border-top-right-radius: 0;
+  font-size: .875rem
+}
+._violet .elements__tips {
+  bottom: 50%;
+  left: -130%;
+  z-index: -1;
+  color: #fff;
+  border-top-left-radius: .625rem;
+  border-bottom-left-radius: .625rem;
+  -webkit-animation: gradient-border 8s linear infinite,gradient-border-btns 1s linear 0s;
+  animation: gradient-border 8s linear infinite,gradient-border-btns 1s linear 0s;
+  transition: all 1s ease 0s;
+  background-image: linear-gradient(45deg,#8e33f7,#2b28d1,#132ea8,#7630d1,#5073b8,#1098ad,#0dbad1,#6f83ba)
+}
+._violet .elements__tips::after {
+  display: none
+}
+._cube .elements__tips {
+  color: #fff;
+  background-color: #000;
+  left: -96%
+}
+._cube .elements__tips::after {
+  border: none;
+  width: .1875rem;
+  height: 0;
+  background-color: #000;
+  transition: height .5s ease 0s
+}
+._parallax .elements__tips {
+  color: #fff;
+  background-color: rgba(255,255,255,.5333333333);
+  border-top-left-radius: .9375rem;
+  border-bottom-left-radius: .3125rem;
+  border-top-right-radius: .3125rem;
+  border-bottom-right-radius: .9375rem;
+  text-shadow: 0 0 10px rgba(0,0,0,.8),0 0 5px rgba(0,0,0,.9)
+}
+._parallax .elements__tips::after {
+  display: none
+}
+.elements__tips--download {
+  bottom: -60%
+}
+.elements__tips::after {
+  content: "";
+  position: absolute;
+  width: 1.875rem;
+  height: 100%;
+  bottom: 100%;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 5px solid #fff
 }
 @-webkit-keyframes svg-on {
   0% {
@@ -761,6 +836,88 @@ body::after {
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
     height: 100%
+  }
+}
+@-webkit-keyframes violet-tips {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: translateY(50%);
+    transform: translateY(50%);
+    width: 100%;
+    -webkit-transform-origin: right top;
+    transform-origin: right top;
+    bottom: 50%;
+    left: -.125rem;
+    z-index: -1;
+    font-size: .625rem
+  }
+  50% {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: translateY(50%);
+    transform: translateY(50%);
+    width: 150%;
+    bottom: 50%;
+    left: -130%;
+    z-index: -1;
+    -webkit-transform-origin: right top;
+    transform-origin: right top;
+    font-size: 1rem
+  }
+  100% {
+    -webkit-transform-origin: right center;
+    transform-origin: right center;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: translateY(50%) rotate(-45deg);
+    transform: translateY(50%) rotate(-45deg);
+    width: 150%;
+    bottom: 30%;
+    left: -130%;
+    z-index: -1;
+    font-size: 1rem
+  }
+}
+@keyframes violet-tips {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: translateY(50%);
+    transform: translateY(50%);
+    width: 100%;
+    -webkit-transform-origin: right top;
+    transform-origin: right top;
+    bottom: 50%;
+    left: -.125rem;
+    z-index: -1;
+    font-size: .625rem
+  }
+  50% {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: translateY(50%);
+    transform: translateY(50%);
+    width: 150%;
+    bottom: 50%;
+    left: -130%;
+    z-index: -1;
+    -webkit-transform-origin: right top;
+    transform-origin: right top;
+    font-size: 1rem
+  }
+  100% {
+    -webkit-transform-origin: right center;
+    transform-origin: right center;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: translateY(50%) rotate(-45deg);
+    transform: translateY(50%) rotate(-45deg);
+    width: 150%;
+    bottom: 30%;
+    left: -130%;
+    z-index: -1;
+    font-size: 1rem
   }
 }
 main {
@@ -1183,6 +1340,12 @@ main {
   animation: title 3s linear 1.5s 1 both;
   padding-bottom: .9375rem
 }
+.action__text-about span {
+  display: block
+}
+.action__text-about span:not(:last-child) {
+  margin-bottom: .9375rem
+}
 .action__title {
   font-family: FEGigant;
   -webkit-animation: title 4s linear 1s 1 both;
@@ -1247,7 +1410,11 @@ main {
   opacity: 0;
   transition: all .3s ease 0s
 }
-._open .action__contact-item img:nth-child(1) {
+._open .action__contact-item img {
+  -webkit-animation: title 1.5s linear 1s 1 both;
+  animation: title 1.5s linear 1s 1 both
+}
+._open .action__contact-item:nth-child(1) {
   -webkit-animation: title 1.5s linear 1s 1 both;
   animation: title 1.5s linear 1s 1 both
 }
@@ -1332,16 +1499,21 @@ main {
 .works__label {
   position: absolute;
   width: 40%;
-  height: 2.5rem;
+  height: 84%;
   top: 1.125rem;
   left: -100%;
-  background-color: #000;
+  background-color: rgba(0,0,0,.7176470588);
   border-radius: 1.25rem;
   color: #fff;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   padding-left: 2.1875rem;
+  padding-right: .625rem;
   transition: left .9s ease 0s
+}
+.cube .works__label {
+  background-color: #000
 }
 .swiper-slide-active .works__label {
   left: -.9375rem
@@ -2056,6 +2228,8 @@ main {
   overflow: hidden
 }
 .violet__main.active {
+  padding-top: 5rem;
+  padding-bottom: 1.875rem;
   cursor: auto;
   -webkit-animation: preview-on 1.5s ease .5s both;
   animation: preview-on 1.5s ease .5s both
@@ -2082,6 +2256,12 @@ main {
 }
 .violet__item--2 .violet__text {
   max-width: 62.5rem
+}
+.violet__text-inner span {
+  display: block
+}
+.violet__text-inner span:not(:last-child) {
+  margin-bottom: .9375rem
 }
 .violet__video {
   bottom: 1.875rem;
@@ -2525,6 +2705,7 @@ main {
   padding-top: 1.5625rem
 }
 .cube__inner-item._open {
+  padding-bottom: 1.875rem;
   display: flex;
   flex-direction: column;
   position: relative
@@ -2572,6 +2753,7 @@ main {
   animation: cube-filter-bf 1s ease .5s both
 }
 .cube__inner-content {
+  overflow: auto;
   margin: 0 auto;
   width: 80%;
   height: 100%;
@@ -2580,16 +2762,19 @@ main {
   text-align: center;
   line-height: 1.1111111111
 }
+.cube__inner-content span {
+  display: block
+}
+.cube__inner-content span:not(:last-child) {
+  margin-bottom: .9375rem
+}
 .cube__inner-content--swiper {
   width: 100%
-}
-.cube__inner-content h2 {
-  margin-bottom: .625rem
 }
 ._open .cube__inner-content {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   z-index: 1;
   -webkit-animation: cube-filter-bf 1s ease .5s both;
@@ -2721,9 +2906,13 @@ main {
   -webkit-transform: rotate(180deg) translateY(.1875rem);
   transform: rotate(180deg) translateY(.1875rem)
 }
+.section--parallax__scroll {
+  position: absolute;
+  z-index: 1
+}
 .inner-parallax {
   position: relative;
-  height: 100dvh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2735,8 +2924,7 @@ main {
   align-items: center;
   gap: 1.875rem;
   height: 100%;
-  justify-content: center;
-  width: 100%
+  justify-content: center
 }
 .inner-parallax__container--works {
   padding-top: 6.25rem;
@@ -2766,7 +2954,7 @@ main {
   width: 1.625rem;
   height: 2.875rem;
   transition: all .1s ease 0s;
-  background: url(../img/letters/ring.webp) 0 0 no-repeat;
+  background: url(../img/letters/ring.png) 0 0 no-repeat;
   position: relative;
   background-color: rgba(0,0,0,0)
 }
@@ -2821,8 +3009,8 @@ main {
 .inner-parallax__content {
   overflow: hidden;
   display: flex;
-  flex: 0 0 0%;
   height: 0;
+  flex-direction: column;
   width: 100%;
   justify-content: center;
   align-items: center
@@ -2835,15 +3023,17 @@ main {
   animation: content-active 2s ease 0s 1 both
 }
 .inner-parallax__text {
-  height: 100%;
   opacity: 0;
   max-width: 59.375rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   text-align: justify;
   text-shadow: 0 0 10px rgba(0,0,0,.8),0 0 5px rgba(0,0,0,.9)
+}
+.inner-parallax__text span {
+  display: block
 }
 .inner-parallax__text h3 {
   font-family: Rostov
@@ -2875,7 +3065,6 @@ main {
   animation: text-active 1s linear 2s 1 both
 }
 .inner-parallax__list {
-  height: 100vh;
   margin: 0;
   gap: .9375rem;
   display: flex;
@@ -3230,7 +3419,7 @@ main {
   will-change: transform
 }
 :root {
-  --img: url("../img/glass.webp");
+  --img: url("../img/glass.jpg");
   --cube-size: 150px;
   --cube-width: calc((100% / 5) - 16px)
 }
@@ -3345,7 +3534,7 @@ main {
     opacity: 0;
     -o-object-fit: contain;
     object-fit: contain;
-    background-image: url(../img/arrow.webp)
+    background-image: url(../img/arrow.png)
   }
 }
 @media (min-width:106.25em) {
@@ -3379,7 +3568,7 @@ main {
 }
 @media (min-width:108.125em) {
   .elements {
-    padding-right: 6.25rem
+    padding-right: 7.1875rem
   }
   .elements {
     gap: 1.875rem
@@ -3395,6 +3584,9 @@ main {
   }
   .action__block {
     padding-left: 2.5rem
+  }
+  .action__block {
+    padding-bottom: 1.875rem
   }
   .action__block--about .action__title {
     margin-bottom: 1.875rem
@@ -3443,6 +3635,12 @@ main {
   }
   .decor__small {
     height: .9375rem
+  }
+  .works__label {
+    font-size: 1rem
+  }
+  .works__label p:not(:last-child) {
+    margin-bottom: .9375rem
   }
   .skills__slider-btn--left {
     margin-left: 6.25rem
@@ -3534,8 +3732,20 @@ main {
   .cube__inner-content {
     font-size: 1.125rem
   }
-  .cube__inner-content h2 {
-    font-size: 1.25rem
+  .section--parallax__scroll {
+    right: 2.5rem
+  }
+  .section--parallax__scroll {
+    bottom: 2.5rem
+  }
+  .section--parallax__scroll {
+    width: 6.25rem
+  }
+  .section--parallax__scroll {
+    height: 6.25rem
+  }
+  .inner-parallax__text span:not(:last-child) {
+    margin-bottom: .9375rem
   }
   .inner-parallax__text {
     font-size: 1.875rem
@@ -3562,6 +3772,21 @@ main {
     font-size: 1.25rem
   }
 }
+@media (min-width:108.125em)and (any-hover:hover) {
+  .elements__block:hover .elements__tips {
+    opacity: 1;
+    visibility: visible
+  }
+  ._violet .elements__block:hover .elements__tips {
+    transition: all 1s ease 0s;
+    text-align: left;
+    -webkit-animation: violet-tips 1s ease 0s 1 both;
+    animation: violet-tips 1s ease 0s 1 both
+  }
+  ._cube .elements__block:hover .elements__tips::after {
+    height: 1.1875rem
+  }
+}
 @media (max-width:20em) {
   .elements {
     padding-right: .0000000625rem
@@ -3586,6 +3811,9 @@ main {
   }
   .action__block {
     padding-top: .625rem
+  }
+  .action__block {
+    padding-bottom: .9375rem
   }
   .action__block--about .action__title {
     margin-bottom: 1.25rem
@@ -3661,6 +3889,12 @@ main {
   }
   .decor__small {
     height: .5625rem
+  }
+  .works__label {
+    font-size: .75rem
+  }
+  .works__label p:not(:last-child) {
+    margin-bottom: .3125rem
   }
   .skills__slider-btn--left {
     margin-left: .0000000625rem
@@ -3755,11 +3989,23 @@ main {
   .cube__inner-content {
     font-size: 1rem
   }
-  .cube__inner-content h2 {
-    font-size: 1.125rem
+  .section--parallax__scroll {
+    right: 1.25rem
+  }
+  .section--parallax__scroll {
+    bottom: 1.25rem
+  }
+  .section--parallax__scroll {
+    width: 3.75rem
+  }
+  .section--parallax__scroll {
+    height: 3.75rem
+  }
+  .inner-parallax__text span:not(:last-child) {
+    margin-bottom: .625rem
   }
   .inner-parallax__text {
-    font-size: 1rem
+    font-size: .875rem
   }
   .inner-parallax__cubes {
     gap: 1.25rem
@@ -3804,7 +4050,6 @@ main {
     flex-direction: column
   }
   .action__block {
-    padding-bottom: .3125rem;
     width: 100%;
     height: 8%;
     overflow: hidden
@@ -3862,13 +4107,14 @@ main {
     height: 6.25rem
   }
   .elements {
+    padding: 0 .625rem;
     justify-content: center;
     margin: 0 auto;
     width: 100%
   }
   .elements__btn svg {
-    width: 2.4375rem;
-    height: 2.4375rem
+    width: 2.375rem;
+    height: 2.375rem
   }
   .elements__element {
     width: 2.8125rem
@@ -3879,17 +4125,21 @@ main {
     -webkit-animation: balls-3 1ms ease 4.8s 1 both,balls-4 1.2s ease 6s 1 both;
     animation: balls-3 1ms ease 4.8s 1 both,balls-4 1.2s ease 6s 1 both
   }
-  .elements__element--two .elements__block {
+  .elements__element--violet .elements__block {
     -webkit-animation: balls-3 1ms ease 5s 1 both,balls-4 1.2s ease 6s 1 both;
     animation: balls-3 1ms ease 5s 1 both,balls-4 1.2s ease 6s 1 both
   }
-  .elements__element--three .elements__block {
+  .elements__element--glass .elements__block {
     -webkit-animation: balls-3 1ms ease 5.2s 1 both,balls-4 1.2s ease 6s 1 both;
     animation: balls-3 1ms ease 5.2s 1 both,balls-4 1.2s ease 6s 1 both
   }
-  .elements__element--four .elements__block {
+  .elements__element--parallax .elements__block {
     -webkit-animation: balls-3 1ms ease 5.4s 1 both,balls-4 1.2s ease 6s 1 both;
     animation: balls-3 1ms ease 5.4s 1 both,balls-4 1.2s ease 6s 1 both
+  }
+  .elements__element--download .elements__block {
+    -webkit-animation: balls-3 1ms ease 5.6s 1 both,balls-4 1.2s ease 6s 1 both;
+    animation: balls-3 1ms ease 5.6s 1 both,balls-4 1.2s ease 6s 1 both
   }
   .action__container {
     padding-top: 0
@@ -3935,6 +4185,9 @@ main {
   .violet__item:nth-child(5) {
     grid-column: span 6
   }
+  .violet__text-inner {
+    overflow: auto
+  }
   .violet__video {
     opacity: 0
   }
@@ -3979,7 +4232,7 @@ main {
 }
 @media (min-width:20em)and (max-width:108.125em) {
   .elements {
-    padding-right: clamp(.0000000625rem ,-1.4184396396rem + 7.0921985106vw ,6.25rem)
+    padding-right: clamp(.0000000625rem ,-1.6312055971rem + 8.1560282979vw ,7.1875rem)
   }
   .elements {
     gap: clamp(1.25rem ,1.1081560284rem + .7092198582vw ,1.875rem)
@@ -3995,6 +4248,9 @@ main {
   }
   .action__block {
     padding-left: clamp(1.25rem ,.9663120567rem + 1.4184397163vw ,2.5rem)
+  }
+  .action__block {
+    padding-bottom: clamp(.9375rem ,.7247340426rem + 1.0638297872vw ,1.875rem)
   }
   .action__block--about .action__title {
     margin-bottom: clamp(1.25rem ,1.1081560284rem + .7092198582vw ,1.875rem)
@@ -4043,6 +4299,12 @@ main {
   }
   .decor__small {
     height: clamp(.5625rem ,.477393617rem + .4255319149vw ,.9375rem)
+  }
+  .works__label {
+    font-size: clamp(.75rem ,.6932624113rem + .2836879433vw ,1rem)
+  }
+  .works__label p:not(:last-child) {
+    margin-bottom: clamp(.3125rem ,.1706560284rem + .7092198582vw ,.9375rem)
   }
   .skills__slider-btn--left {
     margin-left: clamp(.0000000625rem ,-1.4184396396rem + 7.0921985106vw ,6.25rem)
@@ -4134,11 +4396,23 @@ main {
   .cube__inner-content {
     font-size: clamp(1rem ,.9716312057rem + .1418439716vw ,1.125rem)
   }
-  .cube__inner-content h2 {
-    font-size: clamp(1.125rem ,1.0966312057rem + .1418439716vw ,1.25rem)
+  .section--parallax__scroll {
+    right: clamp(1.25rem ,.9663120567rem + 1.4184397163vw ,2.5rem)
+  }
+  .section--parallax__scroll {
+    bottom: clamp(1.25rem ,.9663120567rem + 1.4184397163vw ,2.5rem)
+  }
+  .section--parallax__scroll {
+    width: clamp(3.75rem ,3.1826241135rem + 2.8368794326vw ,6.25rem)
+  }
+  .section--parallax__scroll {
+    height: clamp(3.75rem ,3.1826241135rem + 2.8368794326vw ,6.25rem)
+  }
+  .inner-parallax__text span:not(:last-child) {
+    margin-bottom: clamp(.625rem ,.5540780142rem + .3546099291vw ,.9375rem)
   }
   .inner-parallax__text {
-    font-size: clamp(1rem ,.8014184397rem + .9929078014vw ,1.875rem)
+    font-size: clamp(.875rem ,.6480496454rem + 1.134751773vw ,1.875rem)
   }
   .inner-parallax__cubes {
     gap: clamp(1.25rem ,.8244680851rem + 2.1276595745vw ,3.125rem)
